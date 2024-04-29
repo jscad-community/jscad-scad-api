@@ -13,15 +13,23 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * @example
  * let mirrored1 = mirror({v=[1, 0, 0]}, cube()) // mirror about the X axis
  */
-const mirror = (options, ...object) => {
+const mirror = (options, ...objects) => {
   // check the options
-  checkOptions(options, ['v'])
-  if (!isNumberArray(options.v, 3)) throw new Error('vector must be an array of values')
+  checkOptions(options, []) // allow named options with defaults
 
-  const normal = options.v
-  const origin = [0, 0, 0]
+  const defaults = {
+    v: [0, 1, 0] // mirror about the Y axis
+  }
+  const { v } = Object.assign({ }, defaults, options)
 
-  return transforms.mirror({ normal, origin }, object)
+  if (!isNumberArray(v, 3)) throw new Error('vector must be an array of values')
+
+  options = {
+    normal: v,
+    origin: [0, 0, 0]
+  }
+
+  return transforms.mirror(options, objects)
 }
 
 module.exports = mirror

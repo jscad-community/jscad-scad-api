@@ -22,7 +22,7 @@ const rotate_extrude = require("./rotate_extrude.js")
 
 const assert = require('./assert.js')
 const echo = require('./echo.js')
-const str = require('./str.js')
+const {str, chr, ord} = require('./str.js')
 const {cos, sin, tan, acos, asin, atan, atan2} = require('./maths.js')
 const {abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt} = require('./maths.js')
 
@@ -87,5 +87,9 @@ module.exports = {
   // utilities
   assert,
   echo,
-  str
+
+  // string functions
+  str,
+  chr,
+  ord,
 }

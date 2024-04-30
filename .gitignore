@@ -27,4 +27,4 @@ node_modules/
 *.tgz
 
 # Editor artifacts
-.swp
+*.swp

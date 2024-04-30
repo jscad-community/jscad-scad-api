@@ -1,4 +1,4 @@
-const { expansions } = require('@jscad/modeling')
+const { expansions, utils } = require('@jscad/modeling')
 
 const { checkOptions, isNumberArray } = require('./commonChecks.js')
 
@@ -11,31 +11,60 @@ const { checkOptions, isNumberArray } = require('./commonChecks.js')
  *
  * @param {Object} [options] - options for centering
  * @param {Float} [options.r] - the radius of the circle that is rotated about the outline
- * @param {Boolean} [options.chamfer=true] - defines if edges should be chamfered
- * @param {Boolean} [options.delta] - the distance of the new outline from the original outline
+ * @param {Boolean} [options.delta=1] - the distance of the new outline from the original outline
+ * @param {Boolean} [options.chamfer=false] - defines if edges should be chamfered (delta mode only)
+ * @param {Integer} [options.fa=12] - minimum angle (in degrees) of each fragment
+ * @param {Integer} [options.fs=2] - minimum circumferential length of each fragment
+ * @param {Integer} [options.fn=0] - if provided, number of fragments in 360 degrees
  * @param {...Object} elements - the elements to offset
  * @return {Object|Array} the offset element, or a list of offset elements
  *
  * @example
  */
 const offset = (options, ...elements) => {
-  const defaults = {
-    delta: 1,
-    chamfer: true,
-    r: 0
-  }
-  let { delta, chamfer, r } = Object.assign({}, defaults, options)
-
   // check the options
+  checkOptions(options, []) // allow named options with defaults
 
-  // radial offset
-  if (r !== 0) {
-    return expansions.offset({ delta: r, corners: 'round' }, elements)
+  const defaults = {
+    r: 0,
+    delta: 1,
+    chamfer: false,
+    fa: 12,
+    fs: 2,
+    fn: 0,
+  }
+  let { delta, chamfer, r, fa, fs, fn } = Object.assign({}, defaults, options)
+
+  // calculate the segments
+  let segments = fn
+  if (fn <= 0) {
+    if (r === 0) {
+      segments = 16
+    } else {
+      const minLength = fs
+      const minAngle = utils.degToRad(fa)
+      segments = utils.radiusToSegments(Math.abs(r), minLength, minAngle)
+    }
   }
 
-  // delta offset
-  const corners = chamfer ? 'chamfer' : 'edge'
-  return expansions.offset({ delta, corners }, elements)
+  // determine the delta and the type of corners
+  let corners = "edge"
+  if (r !== 0) {
+    delta = r
+    corners = "round"
+  } else {
+    if (chamfer) {
+      corners = "chamfer"
+    }
+  }
+
+  options = {
+    delta,
+    corners,
+    segments,
+  }
+
+  return expansions.offset(options, elements)
 }
 
 module.exports = offset

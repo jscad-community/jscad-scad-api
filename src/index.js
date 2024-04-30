@@ -43,6 +43,7 @@ module.exports = {
   color,
   mirror,
   multmatrix,
+  offset,
   resize,
   rotate,
   scale,

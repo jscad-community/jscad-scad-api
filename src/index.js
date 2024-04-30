@@ -23,9 +23,13 @@ const rotate_extrude = require("./rotate_extrude.js")
 
 const assert = require('./assert.js')
 const echo = require('./echo.js')
+
 const {str, chr, ord} = require('./strings.js')
+
 const {cos, sin, tan, acos, asin, atan, atan2} = require('./maths.js')
 const {abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt} = require('./maths.js')
+
+const {is_undef, is_bool, is_function, is_list, is_num, is_string} = require("./tests.js")
 
 module.exports = {
   // globals
@@ -94,4 +98,12 @@ module.exports = {
   str,
   chr,
   ord,
+
+  // test functions
+  is_bool,
+  is_function,
+  is_list,
+  is_num,
+  is_string,
+  is_undef,
 }

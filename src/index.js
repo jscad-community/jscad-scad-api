@@ -9,6 +9,7 @@ const sphere = require('./sphere.js')
 const square = require('./square.js')
 
 const color = require('./color.js')
+const hull = require('./hull.js')
 const mirror = require('./mirror.js')
 const multmatrix = require('./multmatrix.js')
 const offset = require('./offset.js')
@@ -43,6 +44,7 @@ module.exports = {
 
   // transforms
   color,
+  hull,
   mirror,
   multmatrix,
   offset,

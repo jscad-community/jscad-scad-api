@@ -21,15 +21,14 @@ const translate = require('./translate.js')
 const linear_extrude = require("./linear_extrude.js")
 const rotate_extrude = require("./rotate_extrude.js")
 
-const assert = require('./assert.js')
-const echo = require('./echo.js')
-
 const {str, chr, ord} = require('./strings.js')
 
 const {cos, sin, tan, acos, asin, atan, atan2} = require('./maths.js')
 const {abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt} = require('./maths.js')
 
 const {is_undef, is_bool, is_function, is_list, is_num, is_string} = require("./tests.js")
+
+const {assert, echo, version, version_num} = require("./features.js")
 
 module.exports = {
   // globals
@@ -70,7 +69,7 @@ module.exports = {
   atan,
   atan2,
 
-  // other functions
+  // other math functions
   abs,
   ceil,
   concat,
@@ -90,10 +89,6 @@ module.exports = {
   sign,
   sqrt,
 
-  // utilities
-  assert,
-  echo,
-
   // string functions
   str,
   chr,
@@ -106,4 +101,10 @@ module.exports = {
   is_num,
   is_string,
   is_undef,
+
+  // language features
+  assert,
+  echo,
+  version,
+  version_num,
 }

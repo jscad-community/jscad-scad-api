@@ -2,12 +2,12 @@ const test = require('ava')
 
 const { geometries, measurements } = require('@jscad/modeling')
 
-const { cube, multimatrix } = require('../src/index.js')
+const { cube, multmatrix } = require('../src/index.js')
 
-test('multimatrix (options)', (t) => {
+test('multmatrix (options)', (t) => {
   // transform 3D object
   let shape = cube({ size: [2, 3, 5] })
-  let obs = multimatrix({}, shape)
+  let obs = multmatrix({}, shape)
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
@@ -20,7 +20,7 @@ test('multimatrix (options)', (t) => {
     [0, 0, 1, 0],
     [0, 0, 0, 1]
   ]
-  obs = multimatrix({m}, shape)
+  obs = multmatrix({m}, shape)
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))

@@ -10,7 +10,7 @@ const square = require('./square.js')
 
 const color = require('./color.js')
 const mirror = require('./mirror.js')
-const multimatrix = require('./multimatrix.js')
+const multmatrix = require('./multmatrix.js')
 const offset = require('./offset.js')
 const resize = require('./resize.js')
 const rotate = require('./rotate.js')
@@ -42,7 +42,7 @@ module.exports = {
   // transforms
   color,
   mirror,
-  multimatrix,
+  multmatrix,
   resize,
   rotate,
   scale,

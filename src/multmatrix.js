@@ -18,14 +18,14 @@ const convertMatrix = (s) => {
  *
  * The fourth row of the matrix is forced to [0,0,0,1] and can be omitted.
  *
- * @param {Object} options - options for multimatrix
+ * @param {Object} options - options for multmatrix
  * @param {Array} options.m - affine transformation matrix, where the matrix is 4×3 or 4x4 array
  * @param {...Object} objects - the objects to transform
  * @return {Object|Array} the transformed object, or a list of transformed objects
  *
  * @example
  */
-const multimatrix = (options, ...objects) => {
+const multmatrix = (options, ...objects) => {
   // check the options
   checkOptions(options, []) // allow named options with defaults
 
@@ -43,4 +43,4 @@ const multimatrix = (options, ...objects) => {
   return transforms.transform(m, objects)
 }
 
-module.exports = multimatrix
+module.exports = multmatrix

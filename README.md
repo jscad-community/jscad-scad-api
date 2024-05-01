@@ -21,14 +21,18 @@ The main difference is that the 'named' parameters are required. This shouldn't 
 For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2,3])
 
 ### 2D Objects
+
 | Shape   | Parameters    | Notes       |
+| ------- | ------------- | ----------- |
 | square  | size, center  |             |
 | circle  | r, d          |             |
 | polygon | points, paths |             |
 | text    |               | UNSUPPORTED |
 
 ### 3D Objects
+
 | Shape      | Parameters                      | Notes       |
+| ---------- | ------------------------------- | ----------- |
 | cube       | size, center                    |             |
 | sphere     | r, d                            |             |
 | cylinder   | h, r, r1, r2, d, d1, d2, center |             |
@@ -36,7 +40,9 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | surface    |                                 | UNSUPPORTED |
 
 ### Transforms
+
 | Function       | Parameters        | Notes       |
+| -------------- | ----------------- | ----------- |
 | color          | c                 |             |
 | rotate         | a, v              |             |
 | translate      | v                 |             |
@@ -49,13 +55,17 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | hull           |                   |             |
 
 # Dimension Changes 2D/3D
+
 | Function       | Parameters                              | Notes       |
+| -------------- | --------------------------------------- | ----------- |
 | projection     |                                         | UNSUPPORTED |
 | linear_extrude | height, v, center, twist, slices, scale |             |
 | rotate_extrude | angle                                   |             |
 
 ### Boolean Combinations
+
 | Function     | Parameters | Notes |
+| ------------ | ---------- | ----- |
 | union        |            |       |
 | difference   |            |       |
 | intersection |            |       |
@@ -88,13 +98,17 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 - sqrt
 
 ### String Functions
+
 | Function | Parameters | Notes |
+| -------- | ---------- | ----- |
 | str      | ...values  |   |
 | chr      | number     |   |
 | ord      | string     |   |
 
 ### Type Test Functions
+
 | Function  | Parameters | Notes |
+| --------- | ---------- | ----- |
 | is_undef  | value      |   |
 | is_bool   | value      |   |
 | is_num    | value      |   |
@@ -102,7 +116,9 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | is_list   | value      |   |
 
 ### Language Features
+
 | Function    | Parameters | Notes |
+| ----------- | ---------- | ----- |
 | assert      | ...values  |  |
 | echo        | ...values  |  |
 | search      |            | UNSUPPORTED |

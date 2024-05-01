@@ -5,7 +5,7 @@ const { geometries, measurements } = require('@jscad/modeling')
 const { polygon } = require('../src/index.js')
 
 test('polygon (defaults)', (t) => {
-  const obs = polygon()
+  const obs = polygon({})
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))

@@ -16,10 +16,16 @@ const { checkOptions, isNumberArray } = require('./commonChecks.js')
  */
 const scale = (options, ...elements) => {
   // check the options
-  checkOptions(options, ['v'])
-  if (!isNumberArray(options.v, 1)) throw new Error('vector must be an array of factors')
+  checkOptions(options, ['v']) // allow named options, with v option
 
-  return transforms.scale(options.v, elements)
+  const defaults = {
+    v: [1, 1, 1]
+  }
+  const { v } = Object.assign({}, defaults, options)
+
+  if (!isNumberArray(v, 1)) throw new Error('v must be an array of factors')
+
+  return transforms.scale(v, elements)
 }
 
 module.exports = scale

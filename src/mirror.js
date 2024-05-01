@@ -15,7 +15,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  */
 const mirror = (options, ...objects) => {
   // check the options
-  checkOptions(options, []) // allow named options with defaults
+  checkOptions(options, ['v']) // allow named options, with v option
 
   const defaults = {
     v: [0, 1, 0] // mirror about the Y axis

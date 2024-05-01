@@ -1,5 +1,7 @@
 const { primitives, utils } = require('@jscad/modeling')
 
+const { checkOptions, isGT } = require('./commonChecks')
+
 /**
  * Creates a sphere at the origin.
  *
@@ -18,6 +20,9 @@ const { primitives, utils } = require('@jscad/modeling')
  * let sphere4 = sphere({r: 15, fn=32})
  */
 const sphere = (options) => {
+  // check the options
+  checkOptions(options, false) // allow named options or none
+
   const defaults = {
     r: 1,
     d: 0,
@@ -32,6 +37,8 @@ const sphere = (options) => {
     r = d / 2
   }
 
+  if (!isGT(r, 0)) throw new Error('r must be positive')
+
   // calculate the segments
   let segments = fn
   if (segments <= 0) {
@@ -43,7 +50,10 @@ const sphere = (options) => {
   // WHY IS OPENSCAD SO WEIRD?
   const center = [0, 0, 0]
 
-  return primitives.sphere({ radius: r, center, segments })
+  // determine options for JSCAD
+  options = { radius: r, center, segments }
+
+  return primitives.sphere(options)
 }
 
 module.exports = sphere

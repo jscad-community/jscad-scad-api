@@ -1,6 +1,6 @@
 const { primitives, utils } = require('@jscad/modeling')
 
-const { checkOptions } = require('./commonChecks')
+const { checkOptions, isGT, isGTE } = require('./commonChecks')
 
 /**
  * Creates a circle at the origin.
@@ -20,7 +20,9 @@ const { checkOptions } = require('./commonChecks')
  * let circle4 = circle({r: 10, fn: 6})
  */
 const circle = (options) => {
-  checkOptions(options)
+  // check the options
+  checkOptions(options, false) // allow default options
+
   const defaults = {
     r: 1,
     d: 0,
@@ -29,6 +31,10 @@ const circle = (options) => {
     fn: 0
   }
   let { r, d, fa, fs, fn } = Object.assign({}, defaults, options)
+
+  // check options
+  if (!isGT(r, 0)) throw new Error('r must be positive')
+  if (!isGTE(d, 0)) throw new Error('d must be positive')
 
   // convert diameter to radius
   if (d > 0) {
@@ -42,7 +48,10 @@ const circle = (options) => {
     segments = utils.radiusToSegments(r, minLength, minAngle)
   }
 
-  return primitives.circle({ radius: r, segments })
+  // determine the options for JSCAD
+  options = { radius: r, segments }
+
+  return primitives.circle(options)
 }
 
 module.exports = circle

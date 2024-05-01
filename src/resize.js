@@ -21,7 +21,6 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
 const resize = (options, element) => {
   // check the options
   checkOptions(options, ['newsize'])
-  if (!isNumberArray(options.newsize, 1)) throw new Error('newsize must be an array of sizes')
 
   const defaults = {
     auto: [false, false, false]
@@ -29,7 +28,9 @@ const resize = (options, element) => {
   const { auto } = Object.assign({}, defaults, options)
 
   // perform checks on options
+  if (!isNumberArray(options.newsize, 1)) throw new Error('newsize must be an array of sizes')
   if (!Array.isArray(auto)) throw new Error('auto must be an array of true or false')
+
   while (auto.length < 3) auto.push(false)
 
   // convert 2D sizes to 3D sizes

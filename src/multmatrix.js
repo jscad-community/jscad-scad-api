@@ -25,7 +25,7 @@ const convertMatrix = (s) => maths.mat4.fromValues(
  */
 const multmatrix = (options, ...objects) => {
   // check the options
-  checkOptions(options, []) // allow named options with defaults
+  checkOptions(options, ['m']) // allow named options, with m option
 
   const defaults = {
     m: null

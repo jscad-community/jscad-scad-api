@@ -43,11 +43,13 @@ const rotate_extrude = (options, object) => {
     sweepSegments = utils.radiusToSegments(sweepAngle, minLength, minAngle)
   }
 
+  // determine the options for JSCAD
   options = {
     angle: sweepAngle,
     startAngle: sweepStart,
     segments: sweepSegments
   }
+
   return extrusions.extrudeRotate(options, object)
 }
 

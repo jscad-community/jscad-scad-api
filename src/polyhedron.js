@@ -1,5 +1,7 @@
 const { primitives } = require('@jscad/modeling')
 
+const { checkOptions } = require('./commonChecks')
+
 /**
  * Create a mulitple faceted polyhedron from a list of points and faces.
  *
@@ -20,14 +22,23 @@ const { primitives } = require('@jscad/modeling')
  * })
  */
 const polyhedron = (options) => {
+  // check the options
+  checkOptions(options, []) // allow named options, with various combinations
+
   const defaults = {
     points: [],
     faces: []
   }
   const { points, faces } = Object.assign({}, defaults, options)
 
+  if (!Array.isArray(points)) throw new Error('points must be an array of x,y,z vertices')
+  if (!Array.isArray(faces)) throw new Error('faces must be an array of indexes')
+
+  // determine the options for JSCAD
   // NOTE: SCAD defines faces that wind clockwise about the normal, opposite of JSCAD.
-  return primitives.polyhedron({ points, faces, orientation: 'inward' })
+  options = { points, faces, orientation: 'inward' }
+
+  return primitives.polyhedron(options)
 }
 
 module.exports = polyhedron

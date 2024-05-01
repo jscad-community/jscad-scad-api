@@ -19,18 +19,19 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
 const rotate = (options, ...objects) => {
   // check the options
   checkOptions(options, ['a'])
-  if (!isNumberArray(options.a, 1)) throw new Error('angles must be an array of rotations')
 
   const defaults = {
+    a: [],
     v: [0, 0, 1] // rotate about the Z axis
   }
-  const { v } = Object.assign({ }, defaults, options)
+  const { a, v } = Object.assign({ }, defaults, options)
 
   // perform checks on options
-  if (!isNumberArray(v, 3)) throw new Error('vector must be an array of values')
+  if (!isNumberArray(a, 1)) throw new Error('a must be an array of rotations')
+  if (!isNumberArray(v, 3)) throw new Error('v must be an array of values')
 
   // convert angles to RADIANS
-  const angles = options.a.map((deg) => utils.degToRad(deg))
+  const angles = a.map((deg) => utils.degToRad(deg))
   while (angles.length < 3) angles.push(0)
 
   // perform the rotations as per SCAD

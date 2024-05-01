@@ -23,6 +23,9 @@ const getScale = (scale, steps) => {
  * let extruded1 = linear_extrude({height: 10}, square())
  */
 const linear_extrude = (options, element) => {
+  // check the options
+  checkOptions(options, []) // allow named options, with defaults
+
   const defaults = {
     height: 100,
     center: false,

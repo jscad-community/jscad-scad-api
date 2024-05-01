@@ -7,12 +7,6 @@ const { cube, multmatrix } = require('../src/index.js')
 test('multmatrix (options)', (t) => {
   // transform 3D object
   const shape = cube({ size: [2, 3, 5] })
-  let obs = multmatrix({}, shape)
-
-  t.true(geometries.geom3.isA(obs))
-  t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 30.0)
-
   // skew the shape
   const m = [
     [1, 0, 0, 0],
@@ -20,7 +14,7 @@ test('multmatrix (options)', (t) => {
     [0, 0, 1, 0],
     [0, 0, 0, 1]
   ]
-  obs = multmatrix({ m }, shape)
+  const obs = multmatrix({ m }, shape)
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))

@@ -23,7 +23,7 @@ const { checkOptions } = require('./commonChecks.js')
  */
 const offset = (options, ...elements) => {
   // check the options
-  checkOptions(options, []) // allow named options with defaults
+  checkOptions(options, []) // allow named options, with various options
 
   const defaults = {
     r: 0,

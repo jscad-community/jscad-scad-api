@@ -1,5 +1,7 @@
 const { primitives, utils } = require('@jscad/modeling')
 
+const { checkOptions } = require('./commonChecks')
+
 /**
  * Creates a cylinder centered vertically about the Z axis.
  *
@@ -27,6 +29,9 @@ const { primitives, utils } = require('@jscad/modeling')
  * let cylinder5 = cylinder({h: 10, r1: 10, r2: 0, fn: 32})
  */
 const cylinder = (options) => {
+  // check the options
+  checkOptions(options, false) // allow default options
+
   const defaults = {
     h: 1,
     r1: 1,
@@ -74,7 +79,16 @@ const cylinder = (options) => {
     segments = utils.radiusToSegments(r, minLength, minAngle)
   }
 
-  return primitives.cylinderElliptic({ height: h, startRadius: [r1, r1], endRadius: [r2, r2], center: offset, segments })
+  // determine the options for JSCAD
+  options = {
+    height: h,
+    startRadius: [r1, r1],
+    endRadius: [r2, r2],
+    center: offset,
+    segments
+  }
+
+  return primitives.cylinderElliptic(options)
 }
 
 module.exports = cylinder

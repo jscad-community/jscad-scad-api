@@ -1,5 +1,7 @@
 const { primitives } = require('@jscad/modeling')
 
+const { checkOptions } = require('./commonChecks')
+
 /**
  * Create a multiple sided shape from a list of coordinates (X, Y).
  *
@@ -18,13 +20,21 @@ const { primitives } = require('@jscad/modeling')
  * let poly2 = polygon({points: [[10,11], [0,11], [5,20]], paths: [[0, 1, 2]]})
  */
 const polygon = (options) => {
+  // check the options
+  checkOptions(options, []) // allow named options, with various combinations
+
   const defaults = {
     paths: [],
     points: []
   }
   const { paths, points } = Object.assign({}, defaults, options)
 
-  return primitives.polygon({ paths, points })
+  if (!Array.isArray(points)) throw new Error('points must be an array of x,y points')
+
+  // determine the options for JSCAD
+  options = { paths, points }
+
+  return primitives.polygon(options)
 }
 
 module.exports = polygon

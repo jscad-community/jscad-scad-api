@@ -1,5 +1,7 @@
 const { primitives } = require('@jscad/modeling')
 
+const { checkOptions, isGT, isNumberArray } = require('./commonChecks')
+
 /**
  * Creates a cube.
  *
@@ -16,6 +18,9 @@ const { primitives } = require('@jscad/modeling')
  * let cube2 = cube({size: [5, 5, 3], center: true})
  */
 const cube = (options) => {
+  // check the options
+  checkOptions(options, false) // allow default options
+
   const defaults = {
     size: [1, 1, 1],
     center: false
@@ -24,8 +29,11 @@ const cube = (options) => {
 
   // convert scalar size to array
   if (Number.isFinite(size)) {
+    if (!isGT(size, 0)) throw new Error('size must be positive')
     size = [size, size, size]
   }
+
+  if (!isNumberArray(size, 3)) throw new Error('size must be an array of factors')
 
   // calculate center of cuboid
   const offset = [0, 0, 0]
@@ -35,7 +43,10 @@ const cube = (options) => {
     offset[2] = size[2] / 2
   }
 
-  return primitives.cuboid({ size, center: offset })
+  // determine the options for JSCAD
+  options = { size, center: offset }
+
+  return primitives.cuboid(options)
 }
 
 module.exports = cube

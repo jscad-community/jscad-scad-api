@@ -1,5 +1,7 @@
 const { primitives } = require('@jscad/modeling')
 
+const { checkOptions, isNumberArray } = require('./commonChecks')
+
 /**
  * Creates a square or rectangle.
  *
@@ -15,6 +17,9 @@ const { primitives } = require('@jscad/modeling')
  * let square2 = square({size: x})
  */
 const square = (options) => {
+  // check the options
+  checkOptions(options, false) // allow default options
+
   const defaults = {
     size: [1, 1],
     center: false
@@ -26,6 +31,9 @@ const square = (options) => {
     size = [size, size]
   }
 
+  // check options
+  if (!isNumberArray(size, 2)) throw new Error('size must be an array of factors')
+
   // calculate center of rectangle
   const offset = [0, 0]
   if (!center) {
@@ -33,7 +41,10 @@ const square = (options) => {
     offset[1] = size[1] / 2
   }
 
-  return primitives.rectangle({ size, center: offset })
+  // determine options for JSCAD
+  options = { size, center: offset }
+
+  return primitives.rectangle(options)
 }
 
 module.exports = square

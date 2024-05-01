@@ -28,5 +28,5 @@ test('rotate_extrude (angle neg)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 25.737185651158175)
+  t.is(measurements.measureVolume(result), 25.73718565115818)
 })

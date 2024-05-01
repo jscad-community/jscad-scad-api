@@ -1,31 +1,16 @@
-const { CAG } = require('@jscad/csg')
+const { booleans } = require('@jscad/modeling')
 
-/** difference/ subtraction of the given shapes ie:
- * cut out C From B From A ie : a - b - c etc
- * @param {Object(s)|Array} objects - objects to subtract
- * can be given
- * - one by one: difference(a,b,c) or
- * - as an array: difference([a,b,c])
- * @returns {CSG} new CSG object, the difference of all input shapes
+/**
+ * Subtracts all elements from the first element (logical AND NOT).
+ *
+ * NOTE: The given elements should be of the same type, i.e. 2D or 3D elements.
+ *
+ * @param {...Object} elements - the elements to subtract from the first
+ * @return {Object} the difference of the elements
  *
  * @example
- * let differenceOfSpherAndCube = difference(sphere(), cube())
+ * let newshape = difference(sphere(), cube())
  */
-function difference () {
-  let object
-  let i = 0
-  let a = arguments
-  if (a[0].length) a = a[0]
-  for (object = a[i++]; i < a.length; i++) {
-    if (a[i] instanceof CAG) {
-      object = object.subtract(a[i])
-    } else {
-      object = object.subtract(a[i].setColor(1, 1, 0)) // -- color the cuts
-    }
-  }
-  return object
-}
+const difference = (...elements) => booleans.subtract(elements)
 
-module.exports = {
-  difference,
-}
+module.exports = difference

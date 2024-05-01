@@ -21,6 +21,10 @@ const translate = require('./translate.js')
 const linear_extrude = require('./linear_extrude.js')
 const rotate_extrude = require('./rotate_extrude.js')
 
+const difference = require("./difference.js")
+const intersection = require("./intersection.js")
+const union = require("./union.js")
+
 const { str, chr, ord } = require('./strings.js')
 
 const { cos, sin, tan, acos, asin, atan, atan2 } = require('./maths.js')
@@ -59,6 +63,11 @@ module.exports = {
   // operations
   linear_extrude,
   rotate_extrude,
+
+  // booleans
+  difference,
+  intersection,
+  union,
 
   // trigonometric functions
   cos,

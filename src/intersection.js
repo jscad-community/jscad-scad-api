@@ -1,30 +1,17 @@
-const { CAG } = require('@jscad/csg')
+const { booleans } = require('@jscad/modeling')
 
-/** intersection of the given shapes: ie keep only the common parts between the given shapes
- * @param {Object(s)|Array} objects - objects to intersect
- * can be given
- * - one by one: intersection(a,b,c) or
- * - as an array: intersection([a,b,c])
- * @returns {CSG} new CSG object, the intersection of all input shapes
+/**
+ * Creates the intersection all elements (logical AND).
+ * Only the area which is common or shared by all children is retained.
+ *
+ * NOTE: The given elements should be of the same type, i.e. 2D or 3D elements.
+ *
+ * @param {...Object} elements - the elements to intersect
+ * @return {Object} the intersection of the elements
  *
  * @example
- * let intersectionOfSpherAndCube = intersection(sphere(), cube())
+ * let newshape = intersection(sphere(), cube())
  */
-function intersection () {
-  let object
-  let i = 0
-  let a = arguments
-  if (a[0].length) a = a[0]
-  for (object = a[i++]; i < a.length; i++) {
-    if (a[i] instanceof CAG) {
-      object = object.intersect(a[i])
-    } else {
-      object = object.intersect(a[i].setColor(1, 1, 0)) // -- color the cuts
-    }
-  }
-  return object
-}
+const intersection = (...elements) => booleans.intersect(elements)
 
-module.exports = {
-  intersection
-}
+module.exports = intersection

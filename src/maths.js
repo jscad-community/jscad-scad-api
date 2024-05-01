@@ -3,43 +3,25 @@ const { utils } = require('@jscad/modeling')
 // Trigonometric Functions
 // NOTE: 360 degree based trig
 
-const cos = (a) => {
-  return Math.cos(a / 180 * Math.PI)
-}
+const cos = (a) => Math.cos(a / 180 * Math.PI)
 
-const sin = (a) => {
-  return Math.sin(a / 180 * Math.PI)
-}
+const sin = (a) => Math.sin(a / 180 * Math.PI)
 
-const tan = (a) => {
-  return Math.tan(a / 180 * Math.PI)
-}
+const tan = (a) => Math.tan(a / 180 * Math.PI)
 
-const acos = (a) => {
-  return Math.acos(a) / Math.PI * 180
-}
+const acos = (a) => Math.acos(a) / Math.PI * 180
 
-const asin = (a) => {
-  return Math.asin(a) / Math.PI * 180
-}
+const asin = (a) => Math.asin(a) / Math.PI * 180
 
-const atan = (a) => {
-  return Math.atan(a) / Math.PI * 180
-}
+const atan = (a) => Math.atan(a) / Math.PI * 180
 
-const atan2 = (a, b) => {
-  return Math.atan2(a, b) / Math.PI * 180
-}
+const atan2 = (a, b) => Math.atan2(a, b) / Math.PI * 180
 
 // Other Mathematical Functions
 
-const abs = (a) => {
-  return Math.abs(a)
-}
+const abs = (a) => Math.abs(a)
 
-const ceil = (a) => {
-  return Math.ceil(a)
-}
+const ceil = (a) => Math.ceil(a)
 
 const concat = (...arr) => utils.flatten(arr)
 
@@ -62,21 +44,15 @@ const cross = (a, b) => {
   return undefined
 }
 
-const exp = (a) => {
-  return Math.exp(a)
-}
+const exp = (a) => Math.exp(a)
 
-const floor = (a) => {
-  return Math.floor(a)
-}
+const floor = (a) => Math.floor(a)
 
-const ln = (a) => {
-  return Math.log(a)
-}
+const ln = (a) => Math.log(a)
 
 const len = (a) => {
   if (Array.isArray(a)) return a.length
-  if ("string" === typeof a) {
+  if (typeof a === 'string') {
     return a.length
   }
   return undefined
@@ -84,9 +60,7 @@ const len = (a) => {
 
 // let (assigment) is supported by JavaScript
 
-const log = (a) => {
-  return Math.log10(a)
-}
+const log = (a) => Math.log10(a)
 
 const max = (...values) => {
   values = utils.flatten(values)
@@ -108,41 +82,32 @@ const norm = (v) => {
   return undefined
 }
 
-const pow = (a, b) => {
-  return Math.pow(a, b)
-}
+const pow = (a, b) => Math.pow(a, b)
 
 const rands = (min, max, vn, seed) => {
-  // -- seed is ignored for now, FIX IT (requires reimplementation of random())
-  //    see http://stackoverflow.com/questions/424292/how-to-create-my-own-javascript-random-number-generator-that-i-can-also-set-the
-  var v = new Array(vn)
-  for (var i = 0; i < vn; i++) {
+  const v = new Array(vn)
+  for (let i = 0; i < vn; i++) {
     v[i] = Math.random() * (max - min) + min
   }
   return v
 }
 
-const round = (a) => {
-  return Math.round(a)
-}
+const round = (a) => Math.round(a)
 
-const sign = (a) => {
-  return a < 0 ? -1 : (a > 1 ? 1 : 0)
-}
+const sign = (a) => a < 0 ? -1 : (a > 1 ? 1 : 0)
 
-const sqrt = (a) => {
-  return Math.sqrt(a)
-}
+const sqrt = (a) => Math.sqrt(a)
 
 const lookup = (ix, v) => {
-  var r = 0
-  for (var i = 0; i < v.length; i++) {
-    var a0 = v[i]
+  let r = 0
+  for (let i = 0; i < v.length; i++) {
+    let a0 = v[i]
     if (a0[0] >= ix) {
       i--
       a0 = v[i]
-      var a1 = v[i + 1]
-      var m = 0
+
+      const a1 = v[i + 1]
+      let m = 0
       if (a0[0] !== a1[0]) {
         m = abs((ix - a0[0]) / (a1[0] - a0[0]))
       }
@@ -158,7 +123,7 @@ const lookup = (ix, v) => {
 }
 
 module.exports = {
-// trig
+  // trig
   sin,
   cos,
   asin,
@@ -166,7 +131,7 @@ module.exports = {
   tan,
   atan,
   atan2,
-// other
+  // other
   abs,
   ceil,
   concat,
@@ -184,5 +149,5 @@ module.exports = {
   rands,
   round,
   sign,
-  sqrt,
+  sqrt
 }

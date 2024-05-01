@@ -1,7 +1,6 @@
-const { maths, transforms, utilinear_extrudels, geometries, extrusions, utils } = require('@jscad/modeling')
+const { maths, transforms, geometries, extrusions, utils } = require('@jscad/modeling')
 
 const { checkOptions, isGT, isGTE, isNumberArray } = require('./commonChecks.js')
-
 
 const getScale = (scale, steps) => {
   if (scale > 1.0) return (scale - 1.0) / steps
@@ -29,9 +28,9 @@ const linear_extrude = (options, element) => {
     center: false,
     twist: 0,
     scale: 1.0,
-    slices: 8,
+    slices: 8
   }
-  let {height, center, twist, scale, slices} = Object.assign({}, defaults, options)
+  let { height, center, twist, scale, slices } = Object.assign({}, defaults, options)
 
   // convert scalar scale to array
   if (Number.isFinite(scale)) {
@@ -50,9 +49,9 @@ const linear_extrude = (options, element) => {
   }
 
   // WEIRD AGAIN... why clockwise twist!!!
-  let twistAngle = utils.degToRad(twist) / twistSteps * -1.0 + 0.0 // rotation to apply to each step
+  const twistAngle = utils.degToRad(twist) / twistSteps * -1.0 + 0.0 // rotation to apply to each step
 
-  let twistScale = [
+  const twistScale = [
     getScale(scale[0], twistSteps),
     getScale(scale[1], twistSteps)
   ] // scale to apply to each step
@@ -76,7 +75,7 @@ const linear_extrude = (options, element) => {
   const matrixScale = maths.mat4.create()
 
   const vecZoffset = maths.mat4.create()
-  const vecZscale = maths.mat4.create()
+  // const vecZscale = maths.mat4.create()
 
   const createTwist = (progress, index, base) => {
     const Zrotation = index / twistSteps * twistAngle
@@ -97,7 +96,6 @@ const linear_extrude = (options, element) => {
 
     return extrusions.slice.transform(matrix, base)
   }
-
 
   options = {
     numberOfSlices: twistSteps + 1,

@@ -11,8 +11,6 @@ const { hulls } = require('@jscad/modeling')
  * @example
  * let hulled = hull(square(), circle())
  */
-const hull = (...objects) => {
-  return hulls.hull(objects)
-}
+const hull = (...objects) => hulls.hull(objects)
 
 module.exports = hull

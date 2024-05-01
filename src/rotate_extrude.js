@@ -1,6 +1,6 @@
-const { maths, transforms, utils, extrusions } = require('@jscad/modeling')
+const { maths, utils, extrusions } = require('@jscad/modeling')
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+const { checkOptions } = require('./commonChecks')
 
 /**
  * Rotational extrusion spins a 2D shape around the Z-axis to form a solid which has rotational symmetry.
@@ -15,13 +15,16 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * @example
  */
 const rotate_extrude = (options, object) => {
+  // check the options
+  checkOptions(options, []) // allow named options with defaults
+
   const defaults = {
     angle: 360,
     fa: 12,
     fs: 2,
     fn: 0
   }
-  let { angle, fa, fs, fn } = Object.assign({}, defaults, options)
+  const { angle, fa, fs, fn } = Object.assign({}, defaults, options)
 
   // convert angle to sweep angle and sweep stop angle
   // NOTE: OPENSCAD start angle is zero, sweeping +/- degrees
@@ -29,7 +32,7 @@ const rotate_extrude = (options, object) => {
   let sweepAngle = utils.degToRad(angle)
   if (sweepAngle < 0.0) {
     sweepStart = maths.constants.TAU + sweepAngle
-    sweelAngle = Math.abs(sweepAngle)
+    sweepAngle = Math.abs(sweepAngle)
   }
 
   // calculate the number of segments to create
@@ -43,7 +46,7 @@ const rotate_extrude = (options, object) => {
   options = {
     angle: sweepAngle,
     startAngle: sweepStart,
-    segments: sweepSegments,
+    segments: sweepSegments
   }
   return extrusions.extrudeRotate(options, object)
 }

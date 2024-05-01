@@ -1,17 +1,15 @@
 const { transforms, maths } = require('@jscad/modeling')
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+const { checkOptions } = require('./commonChecks')
 
 // convert the SCAD matrix to JSCAD equivalent
 // NOTE: SCAD matrix is 4x3 array, or 4x4 array
-const convertMatrix = (s) => {
-  return maths.mat4.fromValues(
-    s[0][0], s[0][1], s[0][2], s[0][3],
-    s[1][0], s[1][1], s[1][2], s[1][3],
-    s[2][0], s[2][1], s[2][2], s[2][3],
-    0, 0, 0, 1,
-  )
-}
+const convertMatrix = (s) => maths.mat4.fromValues(
+  s[0][0], s[0][1], s[0][2], s[0][3],
+  s[1][0], s[1][1], s[1][2], s[1][3],
+  s[2][0], s[2][1], s[2][2], s[2][3],
+  0, 0, 0, 1
+)
 
 /**
  * Transforms the object using the given affine transformation matrix.

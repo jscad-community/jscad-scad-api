@@ -13,8 +13,6 @@ const chr = (...codepoints) => {
   return String.fromCodePoint(...codepoints)
 }
 
-const ord = (str) => {
-  return str.charCodeAt(0)
-}
+const ord = (str) => str.charCodeAt(0)
 
 module.exports = { str, chr, ord }

@@ -1,12 +1,12 @@
 const { expansions, utils } = require('@jscad/modeling')
 
-const { checkOptions, isNumberArray } = require('./commonChecks.js')
+const { checkOptions } = require('./commonChecks.js')
 
 /**
  * Offset generates a new interior or exterior outline from an existing element.
  *
  * There are two modes of operation; radial and offset.
- * The radial method creates a new outline as if a circle of some radius is rotated around the exterior (r>0) or interior (r<0) original outline. 
+ * The radial method creates a new outline as if a circle of some radius is rotated around the exterior (r>0) or interior (r<0) original outline.
  * The offset method creates a new outline whose sides are a fixed distance outer (delta > 0) or inner (delta < 0) from the original outline.
  *
  * @param {Object} [options] - options for centering
@@ -31,7 +31,7 @@ const offset = (options, ...elements) => {
     chamfer: false,
     fa: 12,
     fs: 2,
-    fn: 0,
+    fn: 0
   }
   let { delta, chamfer, r, fa, fs, fn } = Object.assign({}, defaults, options)
 
@@ -48,20 +48,20 @@ const offset = (options, ...elements) => {
   }
 
   // determine the delta and the type of corners
-  let corners = "edge"
+  let corners = 'edge'
   if (r !== 0) {
     delta = r
-    corners = "round"
+    corners = 'round'
   } else {
     if (chamfer) {
-      corners = "chamfer"
+      corners = 'chamfer'
     }
   }
 
   options = {
     delta,
     corners,
-    segments,
+    segments
   }
 
   return expansions.offset(options, elements)

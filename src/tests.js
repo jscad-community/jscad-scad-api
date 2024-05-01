@@ -1,22 +1,12 @@
-const is_bool = (value) => {
-  return ("boolean" == typeof value)
-}
+const is_bool = (value) => (typeof value === 'boolean')
 
-const is_function = (value) => {
-  return ("function" == typeof value)
-}
+const is_function = (value) => (typeof value === 'function')
 
-const is_list = (value) => {
-  return Array.isArray(value)
-}
+const is_list = (value) => Array.isArray(value)
 
-const is_num = (value) => {
-  return ("number" == typeof value && value != Math.NaN)
-}
+const is_num = (value) => (typeof value === 'number' && value !== Math.NaN)
 
-const is_string = (value) => {
-  return ("string" == typeof value)
-}
+const is_string = (value) => (typeof value === 'string')
 
 /**
  * Determine if the give value is undefined.
@@ -25,12 +15,8 @@ const is_string = (value) => {
  * @return {Boolean} true if the given value is null or undefined
  *
  * @example
- * let scaled1 = scale({v: [10, 2]}, square()) // scale 2D element
- * let scaled2 = scale({v: [10, 2, 3]}, sphere())
  */
-const is_undef = (value) => {
-  return (value === null || value === undefined)
-}
+const is_undef = (value) => (value === null || value === undefined)
 
 module.exports = {
   is_bool,
@@ -38,5 +24,5 @@ module.exports = {
   is_list,
   is_num,
   is_string,
-  is_undef,
+  is_undef
 }

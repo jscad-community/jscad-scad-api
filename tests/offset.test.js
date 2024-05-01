@@ -6,13 +6,12 @@ const { square, offset } = require('../src/index.js')
 
 test('offset (defaults)', (t) => {
   // offset 2D object
-  let obs = offset({}, square())
+  const obs = offset({}, square())
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
   t.is(measurements.measureArea(obs), 9)
 })
-
 
 test('offset (options)', (t) => {
   // offset 2D object

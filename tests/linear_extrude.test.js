@@ -6,7 +6,7 @@ const { circle, square, linear_extrude } = require('../src/index.js')
 
 test('linear_extrude (defaults)', (t) => {
   // linear extrude 2D object
-  let obs = linear_extrude({}, circle())
+  const obs = linear_extrude({}, circle())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
@@ -15,7 +15,7 @@ test('linear_extrude (defaults)', (t) => {
 
 test('linear_extrude (height)', (t) => {
   // linear extrude 2D object
-  let obs = linear_extrude({height: 10, center: true}, circle())
+  const obs = linear_extrude({ height: 10, center: true }, circle())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
@@ -24,7 +24,7 @@ test('linear_extrude (height)', (t) => {
 
 test('linear_extrude (twist)', (t) => {
   // linear extrude 2D object
-  let obs = linear_extrude({height: 10, twist: 90, slices: 5}, circle())
+  const obs = linear_extrude({ height: 10, twist: 90, slices: 5 }, circle())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
@@ -33,7 +33,7 @@ test('linear_extrude (twist)', (t) => {
 
 test('linear_extrude (scale)', (t) => {
   // linear extrude 2D object
-  let obs = linear_extrude({height: 10, scale: 5, slices: 5}, square())
+  const obs = linear_extrude({ height: 10, scale: 5, slices: 5 }, square())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
@@ -42,10 +42,9 @@ test('linear_extrude (scale)', (t) => {
 
 test('linear_extrude (all)', (t) => {
   // linear extrude 2D object
-  let obs = linear_extrude({height: 10, twist: 90, scale: 5, slices: 5, center: true}, circle())
+  const obs = linear_extrude({ height: 10, twist: 90, scale: 5, slices: 5, center: true }, circle())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
   t.is(measurements.measureVolume(obs), 322.7498205481532)
 })
-

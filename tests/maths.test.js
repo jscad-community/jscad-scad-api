@@ -1,7 +1,5 @@
 const test = require('ava')
 
-const { geometries, measurements } = require('@jscad/modeling')
-
 const { cos, sin, tan, acos, asin, atan, atan2 } = require('../src/index.js')
 const { abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt } = require('../src/index.js')
 
@@ -53,9 +51,9 @@ test('maths (other)', (t) => {
   t.is(ceil(4.4), 5.0)
   t.is(ceil(-4.4), -4.0)
 
-  t.deepEqual(concat("a","b","c","d","e","f"), ["a","b","c","d","e","f"])
-  t.deepEqual(concat(["a","b","c"],["d","e","f"]), ["a","b","c","d","e","f"])
-  t.deepEqual(concat(1,2,3,4,5,6), [1, 2, 3, 4, 5, 6])
+  t.deepEqual(concat('a', 'b', 'c', 'd', 'e', 'f'), ['a', 'b', 'c', 'd', 'e', 'f'])
+  t.deepEqual(concat(['a', 'b', 'c'], ['d', 'e', 'f']), ['a', 'b', 'c', 'd', 'e', 'f'])
+  t.deepEqual(concat(1, 2, 3, 4, 5, 6), [1, 2, 3, 4, 5, 6])
 
   t.deepEqual(cross([2, 3, 4], [5, 6, 7]), [-3, 6, -3])
   t.deepEqual(cross([2, 1, -3], [0, 4, 5]), [17, -10, 8])
@@ -68,19 +66,19 @@ test('maths (other)', (t) => {
   t.is(floor(4.4), 4)
   t.is(floor(-4.4), -5)
 
-  t.is(len("abcdef"), 6)
+  t.is(len('abcdef'), 6)
   t.is(len(6), undefined)
-  t.is(len([1,2,3,4,5,6,7,8,]), 8)
+  t.is(len([1, 2, 3, 4, 5, 6, 7, 8]), 8)
 
   t.is(log(1000), 3)
 
-  let table = [
- 		[ -200, 5 ],
- 		[ -50, 20 ],
- 		[ -20, 18 ],
- 		[ +80, 25 ],
- 		[ +150, 2 ]
- 	]
+  const table = [
+    [-200, 5],
+    [-50, 20],
+    [-20, 18],
+    [+80, 25],
+    [+150, 2]
+  ]
   t.is(lookup(80, table), 25)
   t.is(lookup(0, table), 19.4)
 
@@ -98,9 +96,9 @@ test('maths (other)', (t) => {
 
   t.is(pow(10, 2), 100)
   t.is(pow(10, 3), 1000)
-  t.is(pow(125, 1/3), 4.999999999999999)
+  t.is(pow(125, 1 / 3), 4.999999999999999)
 
-  let vals = rands(0, 10, 1)
+  const vals = rands(0, 10, 1)
   t.is(vals.length, 1)
   t.true(Number.isFinite(vals[0]))
 

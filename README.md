@@ -54,7 +54,7 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | minkowski      |                   | UNSUPPORTED |
 | hull           |                   |             |
 
-# Dimension Changes 2D/3D
+### Dimension Changes 2D/3D
 
 | Function       | Parameters                              | Notes       |
 | -------------- | --------------------------------------- | ----------- |

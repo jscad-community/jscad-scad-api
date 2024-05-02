@@ -11,7 +11,7 @@ test('mirror (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), -6.0)
+  t.is(measurements.measureArea(obs), 6.0)
 
   // mirror 3D object
   shape = cube({ size: [2, 3, 5] })

@@ -1,0 +1,62 @@
+{
+  "name": "jscad-scad-api",
+  "version": "1.0.0",
+  "description": "JSCAD bridge for OpenSCAD designs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jscad-community/jscad-scad-api"
+  },
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "coverage": "nyc --reporter=html --reporter=text npm test",
+    "test": "ava 'tests/*.test.js' --verbose --timeout 2m",
+    "lint": "standardx './**/*.js'"
+  },
+  "keywords": [
+    "openscad",
+    "jscad"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@jscad/modeling": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "^6.1.0",
+    "nyc": "15.1.0",
+    "standardx": "7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "standardx": {
+    "ignore": [
+      "**/dist/",
+      "**/old/",
+      "**/old-tests/"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "eslintConfig": {
+    "rules": {
+      "func-style": [
+        "error",
+        "expression"
+      ],
+      "arrow-body-style": [
+        "error",
+        "as-needed"
+      ],
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "arrow-spacing": "error",
+      "prefer-arrow-callback": "error",
+      "no-var": "error"
+    }
+  }
+}

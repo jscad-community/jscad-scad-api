@@ -37,9 +37,10 @@ const rotate = (options, ...objects) => {
   // perform the rotations as per SCAD
   const rotations = maths.mat4.create()
   maths.mat4.fromVectorRotation(rotations, [0, 0, 1], v)
-  maths.mat4.fromXRotation(rotations, angles[0])
-  maths.mat4.fromYRotation(rotations, angles[1])
-  maths.mat4.fromZRotation(rotations, angles[2])
+
+  maths.mat4.rotateZ(rotations, rotations, angles[2])
+  maths.mat4.rotateY(rotations, rotations, angles[1])
+  maths.mat4.rotateX(rotations, rotations, angles[0])
 
   // apply the rotations to the objects
   return transforms.transform(rotations, objects)

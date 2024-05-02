@@ -1,5 +1,7 @@
 const { colors } = require('@jscad/modeling')
 
+const { checkOptions, isNumberArray } = require('./commonChecks')
+
 /**
  * Displays the elements using the specified RGB color.
  *
@@ -16,20 +18,33 @@ const { colors } = require('@jscad/modeling')
  * let color1 = color([1,0,0,1], sphere())
  * let color2 = color("red", sphere())
  */
-const color = (color, ...elements) => {
-  let rgb = []
+const color = (options, ...elements) => {
+  checkOptions(options, ['c'])
 
-  if (Array.isArray(color)) {
-    rgb = color.slice()
+  const defaults = {
+    c: null, // no color change
+    alpha: 1.0,
+  }
+  const { c, alpha } = Object.assign({ }, defaults, options)
+
+  // convert options to RGB color and alpha
+  let rgb = null
+
+  if (Array.isArray(c)) {
+    rgb = c.slice()
   }
 
-  if (typeof color === 'string') {
-    rgb = colors.colorNameToRgb(color)
+  if (typeof c === 'string') {
+    rgb = colors.colorNameToRgb(c)
     if (!rgb) {
       // not a color name so try CSS color notation
-      rgb = colors.hexToRgb(color)
+      rgb = colors.hexToRgb(c)
     }
   }
+
+  if (!rgb) return elements
+
+  if (rgb.length < 4) rgb.push(alpha)
 
   return colors.colorize(rgb, elements)
 }

@@ -6,7 +6,7 @@ const { square, cube, rotate } = require('../src/index.js')
 
 test('rotate (options)', (t) => {
   // rotate 2D object
-  let obs = rotate({ a: [45] }, square({ size: [2, 3] }))
+  let obs = rotate({ a: 45 }, square({ size: [2, 3] }))
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))

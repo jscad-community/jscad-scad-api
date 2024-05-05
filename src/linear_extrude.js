@@ -111,7 +111,7 @@ const linear_extrude = (options, element) => {
   let output = extrusions.extrudeFromSlices(options, baseSlice)
 
   if (center === true) {
-    output = transforms.centerZ({}, output)
+    output = transforms.centerZ(output)
   }
   return output
 }

@@ -11,6 +11,8 @@ const getScale = (scale, steps) => {
 /**
  * Generate a 3D shape by extruding a 2D object about the Z-axis.
  *
+ * NOTE: If provided, $fn must be a named parameter, and used for slices.
+ *
  * @param {Object} options - options for extruding
  * @param {Float} [options.height=100] - height of the extruded shape
  * @param {Integer} [options.slices=8] - number of intermediary steps
@@ -24,7 +26,7 @@ const getScale = (scale, steps) => {
  */
 const linear_extrude = (options, element) => {
   // check the options
-  checkOptions(options, []) // allow named options, with defaults
+  options = checkOptions(options, []) // allow named options, with defaults
 
   const defaults = {
     height: 100,
@@ -46,6 +48,8 @@ const linear_extrude = (options, element) => {
   if (!isGTE(slices, 1)) throw new Error('slices must be positive')
 
   // determine the per step angle of rotation and per step scale
+  if ('$fn' in options && options.$fn > slices) slices = options.$fn
+
   let twistSteps = slices
   if (twist === 0 && scale === 1.0) {
     twistSteps = 1

@@ -9,7 +9,7 @@ test('sphere (defaults)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 4.118284167955647)
+  t.is(measurements.measureVolume(obs), 1.5850941938252558)
 })
 
 test('sphere (options)', (t) => {
@@ -18,21 +18,21 @@ test('sphere (options)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 263.5701867491614)
+  t.is(measurements.measureVolume(obs), 240.4993745470391)
 
   // using diameters
   obs = sphere({ d: 8 })
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 263.5701867491614)
+  t.is(measurements.measureVolume(obs), 240.4993745470391)
 
   // using F parameters
   obs = sphere({ r: 3, fn: 8 })
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 86.91168824543139)
+  t.is(measurements.measureVolume(obs), 98.713999147284)
 
   obs = sphere({ r: 3, fa: 36 })
 
@@ -40,9 +40,9 @@ test('sphere (options)', (t) => {
   t.notThrows(() => geometries.geom3.validate(obs))
   t.is(measurements.measureVolume(obs), 98.713999147284)
 
-  obs = sphere({ r: 3, fs: 0.2 })
+  obs = sphere({ r: 5, fs: 0.2, fa: 3 })
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 112.8939124097664)
+  t.is(measurements.measureVolume(obs), 490.82454863890973)
 })

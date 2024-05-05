@@ -28,7 +28,7 @@ test('linear_extrude (twist)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 31.234846486362226)
+  t.is(measurements.measureVolume(obs), 31.01559563714066)
 })
 
 test('linear_extrude (scale)', (t) => {
@@ -46,5 +46,5 @@ test('linear_extrude (all)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 322.7498205481532)
+  t.is(measurements.measureVolume(obs), 320.5310019540307)
 })

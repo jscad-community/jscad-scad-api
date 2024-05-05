@@ -20,12 +20,16 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  */
 const resize = (options, element) => {
   // check the options
-  checkOptions(options, ['newsize'])
+  checkOptions(options, []) // allow named parameters, with defaults
 
   const defaults = {
+    newsize: null,
     auto: [false, false, false]
   }
-  const { auto } = Object.assign({}, defaults, options)
+  let { newsize, auto } = Object.assign({}, defaults, options)
+
+  // return original if newsize is missing
+  if (!newsize) return element
 
   // perform checks on options
   if (!isNumberArray(options.newsize, 1)) throw new Error('newsize must be an array of sizes')
@@ -34,7 +38,7 @@ const resize = (options, element) => {
   while (auto.length < 3) auto.push(false)
 
   // convert 2D sizes to 3D sizes
-  const newsize = options.newsize.slice()
+  newsize = options.newsize.slice()
   while (newsize.length < 3) newsize.push(0)
 
   // determine the newsize if auto enabled

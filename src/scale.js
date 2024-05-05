@@ -21,9 +21,14 @@ const scale = (options, ...elements) => {
   const defaults = {
     v: [1, 1, 1]
   }
-  const { v } = Object.assign({}, defaults, options)
+  let { v } = Object.assign({}, defaults, options)
 
-  if (!isNumberArray(v, 1)) throw new Error('v must be an array of factors')
+  // convert scalar size to array
+  if (Number.isFinite(v)) {
+    v = [v, v, v]
+  }
+
+  if (!isNumberArray(v, 2)) throw new Error('v must be an array of factors')
 
   return transforms.scale(v, elements)
 }

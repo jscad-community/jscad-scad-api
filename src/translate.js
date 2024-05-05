@@ -18,7 +18,7 @@ const translate = (options, ...elements) => {
   // check the options
   checkOptions(options, ['v'])
 
-  if (!isNumberArray(options.v, 1)) throw new Error('vector must be an array of movements')
+  if (!isNumberArray(options.v, 2)) throw new Error('v must be an array of movements')
 
   return transforms.translate(options.v, elements)
 }

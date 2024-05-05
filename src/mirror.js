@@ -11,14 +11,14 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * @return {Object|Array} the mirrored object, or a list of mirrored objects
  *
  * @example
- * let mirrored1 = mirror({v=[1, 0, 0]}, cube()) // mirror about the X axis
+ * let mirrored1 = mirror({v: [1, 0, 0]}, cube()) // mirror about the X axis
  */
 const mirror = (options, ...objects) => {
   // check the options
-  checkOptions(options, ['v']) // allow named options, with v option
+  checkOptions(options, []) // allow named options, with defaults
 
   const defaults = {
-    v: [0, 1, 0] // mirror about the Y axis
+    v: [1, 0, 0] // mirror about the X axis
   }
   const { v } = Object.assign({ }, defaults, options)
 

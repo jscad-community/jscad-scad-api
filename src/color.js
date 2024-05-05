@@ -1,6 +1,6 @@
 const { colors } = require('@jscad/modeling')
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+const { checkOptions } = require('./commonChecks')
 
 /**
  * Displays the elements using the specified RGB color.
@@ -23,7 +23,7 @@ const color = (options, ...elements) => {
 
   const defaults = {
     c: null, // no color change
-    alpha: 1.0,
+    alpha: 1.0
   }
   const { c, alpha } = Object.assign({ }, defaults, options)
 

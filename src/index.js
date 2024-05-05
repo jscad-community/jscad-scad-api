@@ -21,9 +21,9 @@ const translate = require('./translate.js')
 const linear_extrude = require('./linear_extrude.js')
 const rotate_extrude = require('./rotate_extrude.js')
 
-const difference = require("./difference.js")
-const intersection = require("./intersection.js")
-const union = require("./union.js")
+const difference = require('./difference.js')
+const intersection = require('./intersection.js')
+const union = require('./union.js')
 
 const { str, chr, ord } = require('./strings.js')
 

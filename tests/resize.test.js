@@ -5,7 +5,7 @@ const { geometries, measurements } = require('@jscad/modeling')
 const { circle, cube, resize } = require('../src/index.js')
 
 test('resize (defaults)', (t) => {
-  let obs = resize({}, cube())
+  const obs = resize({}, cube())
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))

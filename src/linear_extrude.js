@@ -3,8 +3,8 @@ const { maths, transforms, geometries, extrusions, utils } = require('@jscad/mod
 const { checkOptions, isGT, isGTE, isNumberArray } = require('./commonChecks.js')
 
 const getScale = (scale, steps) => {
-  if (scale > 1.0) return (scale - 1.0) / steps
-  if (scale < 1.0) return (1.0 - scale) / steps
+  if (scale > 0.0) return (scale - 1.0) / steps
+  if (scale < 0.0) return (1.0 - scale) / steps
   return 0.0
 }
 
@@ -13,14 +13,14 @@ const getScale = (scale, steps) => {
  *
  * @param {Object} options - options for extruding
  * @param {Float} [options.height=100] - height of the extruded shape
- * @param {Integer} [options.slices=4] - number of intermediary steps
+ * @param {Integer} [options.slices=8] - number of intermediary steps
  * @param {Integer} [options.twist=0] - angle in which to twist the extusion about the Z-axis
- * @param {Integer} [options.scale=1.0] - scale to add to each step throughout the shape
+ * @param {Integer} [options.scale=0.0] - scale to acheive for the final the shape
  * @param {Boolean} [options.center=false] - whether to center the final 3D shape
  * @returns {CSG} new extruded shape
  *
  * @example
- * let extruded1 = linear_extrude({height: 10}, square())
+ * let shape1 = linear_extrude({height: 10}, square())
  */
 const linear_extrude = (options, element) => {
   // check the options
@@ -30,7 +30,7 @@ const linear_extrude = (options, element) => {
     height: 100,
     center: false,
     twist: 0,
-    scale: 1.0,
+    scale: [0.0, 0.0],
     slices: 8
   }
   let { height, center, twist, scale, slices } = Object.assign({}, defaults, options)
@@ -81,7 +81,7 @@ const linear_extrude = (options, element) => {
   // const vecZscale = maths.mat4.create()
 
   const createTwist = (progress, index, base) => {
-    const Zrotation = index / twistSteps * twistAngle
+    const Zrotation = index * twistAngle
     const Zoffset = maths.vec3.scale(vecZoffset, offsetv, index / twistSteps)
     const Zscale = maths.vec3.fromValues((index * twistScale[0]) + 1.0, (index * twistScale[1]) + 1.0, 1.0)
 
@@ -111,7 +111,7 @@ const linear_extrude = (options, element) => {
   let output = extrusions.extrudeFromSlices(options, baseSlice)
 
   if (center === true) {
-    output = transforms.center({}, output)
+    output = transforms.centerZ({}, output)
   }
   return output
 }

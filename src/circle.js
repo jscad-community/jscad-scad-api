@@ -16,8 +16,8 @@ const { get_fragments_from_options } = require('./globals.js')
  * @example
  * let circle1 = circle({r: 10})
  * let circle2 = circle({d: 20})
- * let circle3 = circle({r: 15, fa: 12, fs: 2})
- * let circle4 = circle({r: 10, fn: 6})
+ * let circle3 = circle({r: 15, $fa: 12, $fs: 2})
+ * let circle4 = circle({r: 10, $fn: 6})
  */
 const circle = (options) => {
   // check the options

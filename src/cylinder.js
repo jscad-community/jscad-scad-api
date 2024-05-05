@@ -1,11 +1,14 @@
-const { primitives, utils } = require('@jscad/modeling')
+const { primitives } = require('@jscad/modeling')
 
 const { checkOptions } = require('./commonChecks')
+const { get_fragments_from_options } = require('./globals.js')
 
 /**
  * Creates a cylinder centered vertically about the Z axis.
  *
  * When center is true, it is also centered vertically along the Z axis.
+ *
+ * If used, $fa, $fs and $fn must be named parameters.
  *
  * @param {Object} [options] - options for construction
  * @param {Float} [options.h=1] - height of the cylinder
@@ -16,9 +19,6 @@ const { checkOptions } = require('./commonChecks')
  * @param {Float} [options.d1=0] - if provided, diameter of the top of the cylinder, d1 = r1 * 2
  * @param {Float} [options.d2=0] - if provided, diameter of the bottom of the cylinder, d2 = r2 * 2
  * @param {Boolean} [options.center=false] - wether to center the cylinder about Z axis or not
- * @param {Integer} [options.fa=12] - minimum angle (in degrees) of each fragment
- * @param {Integer} [options.fs=2] - minimum circumferential length of each fragment
- * @param {Integer} [options.fn=0] - if provided, number of fragments in 360 degrees
  * @returns {Geom3} new 3D geometry
  *
  * @example
@@ -26,11 +26,11 @@ const { checkOptions } = require('./commonChecks')
  * let cylinder2 = cylinder({d: 20})
  * let cylinder3 = cylinder({h: 10, r1: 10, r2: 5})
  * let cylinder4 = cylinder({h: 10, d1: 20, d2: 10})
- * let cylinder5 = cylinder({h: 10, r1: 10, r2: 0, fn: 32})
+ * let cylinder5 = cylinder({h: 10, r1: 10, r2: 0, $fn: 32})
  */
 const cylinder = (options) => {
   // check the options
-  checkOptions(options, false) // allow default options
+  options = checkOptions(options, false) // allow default options
 
   const defaults = {
     h: 1,
@@ -40,12 +40,9 @@ const cylinder = (options) => {
     d: 0,
     d1: 0,
     d2: 0,
-    center: false,
-    fa: 12,
-    fs: 2,
-    fn: 0
+    center: false
   }
-  let { h, r1, r2, r, d, d1, d2, center, fa, fs, fn } = Object.assign({}, defaults, options)
+  let { h, r1, r2, r, d, d1, d2, center } = Object.assign({}, defaults, options)
 
   // convert diameter to radius
   if (d1 > 0) {
@@ -71,13 +68,8 @@ const cylinder = (options) => {
   }
 
   // calculate the segments
-  let segments = fn
-  if (segments <= 0) {
-    const minLength = fs
-    const minAngle = utils.degToRad(fa)
-    r = r1 > r2 ? r1 : r2 // use the largest radius
-    segments = utils.radiusToSegments(r, minLength, minAngle)
-  }
+  r = r1 > r2 ? r1 : r2 // use the largest radius
+  const segments = get_fragments_from_options(options, r)
 
   // determine the options for JSCAD
   options = {

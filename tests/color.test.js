@@ -10,7 +10,7 @@ test('color (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 3.1186753622663903)
+  t.is(measurements.measureArea(obs), 2.377641290737884)
 
   // color 3D object
   obs = color({ c: 'red' }, cube())

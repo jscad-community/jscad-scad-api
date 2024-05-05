@@ -10,7 +10,7 @@ test('translate (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 3.1186753622663907)
+  t.is(measurements.measureArea(obs), 2.3776412907378845)
 
   // translate 3D object
   obs = translate({ v: [3, 3, 3] }, cube())

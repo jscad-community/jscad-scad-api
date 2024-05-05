@@ -18,7 +18,7 @@ test('resize (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 7.055671270566608)
+  t.is(measurements.measureArea(obs), 6.218847050625472)
 
   // resize 3D object
   obs = resize({ newsize: [3, 3, 3], auto: [true, false, false] }, cube())

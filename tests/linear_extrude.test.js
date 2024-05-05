@@ -10,7 +10,7 @@ test('linear_extrude (defaults)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 311.86753622664)
+  t.is(measurements.measureVolume(obs), 237.76412907378855)
 })
 
 test('linear_extrude (height)', (t) => {
@@ -19,7 +19,7 @@ test('linear_extrude (height)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 31.186753622663886)
+  t.is(measurements.measureVolume(obs), 23.77641290737884)
 })
 
 test('linear_extrude (twist)', (t) => {
@@ -28,7 +28,7 @@ test('linear_extrude (twist)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 31.01559563714066)
+  t.is(measurements.measureVolume(obs), 25.16789184450169)
 })
 
 test('linear_extrude (scale)', (t) => {
@@ -46,5 +46,5 @@ test('linear_extrude (all)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 320.5310019540307)
+  t.is(measurements.measureVolume(obs), 259.7713668865978)
 })

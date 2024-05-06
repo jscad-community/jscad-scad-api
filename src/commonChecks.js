@@ -1,16 +1,16 @@
 // check that the options provided are proper; none or anonymous object
 const checkOptions = (options, required = null) => {
   // allow default options
-  if (!required && options === undefined) return
+  if (!required && options === undefined) return {}
 
   // allow options of any name
-  if (!required && typeof options === 'object') return
+  if (!required && typeof options === 'object') return options
 
   // check that the required options are present
   if (typeof options === 'object') {
     let present = true
     required.forEach((r) => { present = present && Object.hasOwn(options, r) })
-    if (present) return
+    if (present) return options
   }
 
   throw new Error('Invalid options; use named parameters; ' + required)

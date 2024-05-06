@@ -10,16 +10,16 @@ test('rotate_extrude (defaults)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 34.30542898493031)
+  t.is(measurements.measureVolume(result), 33.8599941892412)
 })
 
 test('rotate_extrude (angle pos)', (t) => {
   const obs = translate({ v: [5, 0, 0] }, square())
-  const result = rotate_extrude({ angle: 270 }, obs)
+  const result = rotate_extrude({ angle: 270, $fn: 8 }, obs)
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 25.737185651158153)
+  t.is(measurements.measureVolume(result), 23.334523779156065)
 })
 
 test('rotate_extrude (angle neg)', (t) => {
@@ -28,5 +28,5 @@ test('rotate_extrude (angle neg)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 25.73718565115818)
+  t.is(measurements.measureVolume(result), 25.431487770547868)
 })

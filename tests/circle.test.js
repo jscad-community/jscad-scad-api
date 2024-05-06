@@ -9,7 +9,7 @@ test('circle (defaults)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 3.1186753622663903)
+  t.is(measurements.measureArea(obs), 2.377641290737884)
 })
 
 test('circle (options)', (t) => {
@@ -18,31 +18,31 @@ test('circle (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 28.068078260397513)
+  t.is(measurements.measureArea(obs), 26.450336353161287)
 
   // using diameter
   obs = circle({ d: 6 })
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 28.068078260397513)
+  t.is(measurements.measureArea(obs), 26.450336353161287)
 
   // using F parameters
-  obs = circle({ r: 5, fn: 8 })
+  obs = circle({ r: 5, $fn: 8 })
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
   t.is(measurements.measureArea(obs), 70.71067811865476)
 
-  obs = circle({ r: 5, fa: 36 })
+  obs = circle({ r: 5, $fa: 36 })
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 76.53668647301797)
+  t.is(measurements.measureArea(obs), 73.47315653655915)
 
-  obs = circle({ r: 5, fs: 0.2 })
+  obs = circle({ r: 5, $fs: 0.5, $fa: 3 })
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 78.51911731642821)
+  t.is(measurements.measureArea(obs), 78.40967919420565)
 })

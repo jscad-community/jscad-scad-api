@@ -1,4 +1,4 @@
-const { primitives, utils } = require('@jscad/modeling')
+const { primitives } = require('@jscad/modeling')
 
 const { checkOptions, isGT } = require('./commonChecks')
 const { get_fragments_from_options } = require('./globals.js')
@@ -25,7 +25,7 @@ const sphere = (options) => {
 
   const defaults = {
     r: 1,
-    d: 0,
+    d: 0
   }
   let { r, d } = Object.assign({}, defaults, options)
 

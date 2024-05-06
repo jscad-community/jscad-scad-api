@@ -15,15 +15,15 @@ test('offset (defaults)', (t) => {
 
 test('offset (options)', (t) => {
   // offset 2D object
-  let obs = offset({ r: 3 }, square())
+  let obs = offset({ r: 3 }, square({ size: 5 }))
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 41.03763767849562)
+  t.is(measurements.measureArea(obs), 110.4558441227157)
 
-  obs = offset({ delta: 3, chamfer: true }, square())
+  obs = offset({ delta: 3, chamfer: true }, square({ size: 5 }))
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 31.0)
+  t.is(measurements.measureArea(obs), 103)
 })

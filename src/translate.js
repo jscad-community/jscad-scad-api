@@ -1,6 +1,6 @@
-const { transforms } = require('@jscad/modeling')
+import { transforms } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks.js')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Translate the elements along the specified vector.
@@ -14,7 +14,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks.js')
  * let moved1 = translate({v: [10, 2]}, square()) // translate 2D element
  * let moved2 = translate({v: [10, 2, 0]}, sphere())
  */
-const translate = (options, ...elements) => {
+export const translate = (options, ...elements) => {
   // check the options
   checkOptions(options, ['v'])
 
@@ -23,4 +23,3 @@ const translate = (options, ...elements) => {
   return transforms.translate(options.v, elements)
 }
 
-module.exports = translate

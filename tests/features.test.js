@@ -1,6 +1,6 @@
-const test = require('ava')
+import test from 'ava'
 
-const { assert, echo, version, version_num } = require('../src/index.js')
+import { assert, echo, version, version_num } from '../src/index.js'
 
 test('features (all)', (t) => {
   echo('JSCAD-SCAD-API', version(), version_num())

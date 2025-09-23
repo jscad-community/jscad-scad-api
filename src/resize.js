@@ -1,6 +1,6 @@
-const { transforms, measurements } = require('@jscad/modeling')
+import { transforms, measurements } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Modifies the dimensions of the element to match the new size.
@@ -18,7 +18,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * let resized2 = resize({newsize=[5,5,5], cube())
  * let resized3 = resize({newsize=[5,0,0], auto: [false, true, false], cube())
  */
-const resize = (options, element) => {
+export const resize = (options, element) => {
   // check the options
   checkOptions(options, []) // allow named parameters, with defaults
 
@@ -69,4 +69,3 @@ const resize = (options, element) => {
   return transforms.scale(scales, element)
 }
 
-module.exports = resize

@@ -1,6 +1,6 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Creates a square or rectangle.
@@ -16,7 +16,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * let square1 = square({size: [x, y], center: true})
  * let square2 = square({size: x})
  */
-const square = (options) => {
+export const square = (options) => {
   // check the options
   checkOptions(options, false) // allow default options
 
@@ -47,4 +47,3 @@ const square = (options) => {
   return primitives.rectangle(options)
 }
 
-module.exports = square

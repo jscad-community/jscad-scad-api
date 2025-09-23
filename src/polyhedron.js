@@ -1,6 +1,6 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks')
+import { checkOptions } from './commonChecks.js'
 
 /**
  * Create a mulitple faceted polyhedron from a list of points and faces.
@@ -21,7 +21,7 @@ const { checkOptions } = require('./commonChecks')
  *            [1,0,3], [2,1,3] ]                               // two triangles for square base
  * })
  */
-const polyhedron = (options) => {
+export const polyhedron = (options) => {
   // check the options
   checkOptions(options, []) // allow named options, with various combinations
 
@@ -41,4 +41,3 @@ const polyhedron = (options) => {
   return primitives.polyhedron(options)
 }
 
-module.exports = polyhedron

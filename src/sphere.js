@@ -1,7 +1,7 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions, isGT } = require('./commonChecks')
-const { get_fragments_from_options } = require('./globals.js')
+import { checkOptions, isGT } from './commonChecks.js'
+import { get_fragments_from_options } from './globals.js'
 
 /**
  * Creates a sphere at the origin.
@@ -19,7 +19,7 @@ const { get_fragments_from_options } = require('./globals.js')
  * let sphere3 = sphere({r: 15, fa: 12, fs: 2})
  * let sphere4 = sphere({r: 15, fn=32})
  */
-const sphere = (options) => {
+export const sphere = (options) => {
   // check the options
   options = checkOptions(options, false) // allow named options or none
 
@@ -48,4 +48,3 @@ const sphere = (options) => {
   return primitives.sphere(options)
 }
 
-module.exports = sphere

@@ -1,4 +1,4 @@
-const { hulls } = require('@jscad/modeling')
+import { hulls } from '@jscad/modeling'
 
 /**
  * Create a convex hull around the given elements.
@@ -11,6 +11,5 @@ const { hulls } = require('@jscad/modeling')
  * @example
  * let hulled = hull(square(), circle())
  */
-const hull = (...objects) => hulls.hull(objects)
+export const hull = (...objects) => hulls.hull(objects)
 
-module.exports = hull

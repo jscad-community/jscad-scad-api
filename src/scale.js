@@ -1,6 +1,6 @@
-const { transforms } = require('@jscad/modeling')
+import { transforms } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks.js')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Scale the elements using the specified vector.
@@ -14,7 +14,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks.js')
  * let scaled1 = scale({v: [10, 2]}, square()) // scale 2D element
  * let scaled2 = scale({v: [10, 2, 3]}, sphere())
  */
-const scale = (options, ...elements) => {
+export const scale = (options, ...elements) => {
   // check the options
   checkOptions(options, ['v']) // allow named options, with v option
 
@@ -33,4 +33,3 @@ const scale = (options, ...elements) => {
   return transforms.scale(v, elements)
 }
 
-module.exports = scale

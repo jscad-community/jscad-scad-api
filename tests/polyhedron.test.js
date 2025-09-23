@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { polyhedron } = require('../src/index.js')
+import { polyhedron } from '../src/index.js'
 
 test('polyhedron (defaults)', (t) => {
   // three or more points are required

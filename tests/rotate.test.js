@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { square, cube, rotate } = require('../src/index.js')
+import { square, cube, rotate } from '../src/index.js'
 
 test('rotate (options)', (t) => {
   // rotate 2D object

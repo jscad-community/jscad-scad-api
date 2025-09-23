@@ -1,6 +1,6 @@
-const test = require('ava')
+import test from 'ava'
 
-const { is_bool, is_function, is_list, is_num, is_string, is_undef } = require('../src/index.js')
+import { is_bool, is_function, is_list, is_num, is_string, is_undef } from '../src/index.js'
 
 test('tests (all)', (t) => {
   t.true(is_bool(true))

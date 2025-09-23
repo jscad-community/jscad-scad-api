@@ -1,6 +1,6 @@
-const { maths, transforms, utils } = require('@jscad/modeling')
+import { maths, transforms, utils } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Rotates the objects about the axis, or around an arbitrary axis.
@@ -19,7 +19,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * let rotated2 = rotate({{a: [45, 180, -90]}, cube())
  * let rotated3 = rotate({{a: [45, 180, -90], v: [0, 1, 0]}, cube())
  */
-const rotate = (options, ...objects) => {
+export const rotate = (options, ...objects) => {
   // check the options
   checkOptions(options, ['a'])
 
@@ -56,4 +56,3 @@ const rotate = (options, ...objects) => {
   return transforms.transform(rotations, objects)
 }
 
-module.exports = rotate

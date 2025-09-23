@@ -1,4 +1,4 @@
-const { booleans } = require('@jscad/modeling')
+import { booleans } from '@jscad/modeling'
 
 /**
  * Creates a union of all elements (logical OR). This is the sum of all elements.
@@ -11,6 +11,5 @@ const { booleans } = require('@jscad/modeling')
  * @example
  * let newshape = union(sphere(), cube())
  */
-const union = (...elements) => booleans.union(elements)
+export const union = (...elements) => booleans.union(elements)
 
-module.exports = union

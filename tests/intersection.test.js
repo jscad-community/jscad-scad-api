@@ -1,15 +1,15 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { square, cube, intersection, translate } = require('../src/index.js')
+import { square, cube, intersection, translate } from '../src/index.js'
 
 test('intersection (2D and 3D objects)', (t) => {
   let obs = intersection(square({ size: 3 }), translate({ v: [1, 1] }, square({ size: 3 })))
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 4.0000000000000036)
+  t.is(measurements.measureArea(obs), 4)
 
   // scale 3D object
   obs = intersection(cube({ size: 3 }), translate({ v: [1, 1, 1] }, cube({ size: 3 })))

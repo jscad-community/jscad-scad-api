@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { rotate_extrude, square, translate } = require('../src/index.js')
+import { rotate_extrude, square, translate } from '../src/index.js'
 
 test('rotate_extrude (defaults)', (t) => {
   const obs = translate({ v: [5, 0, 0] }, square())
@@ -10,7 +10,7 @@ test('rotate_extrude (defaults)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 33.8599941892412)
+  t.is(measurements.measureVolume(result), 33.859994189241206)
 })
 
 test('rotate_extrude (angle pos)', (t) => {
@@ -19,7 +19,7 @@ test('rotate_extrude (angle pos)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 23.334523779156065)
+  t.is(measurements.measureVolume(result), 23.334523779156058)
 })
 
 test('rotate_extrude (angle neg)', (t) => {
@@ -28,5 +28,5 @@ test('rotate_extrude (angle neg)', (t) => {
 
   t.true(geometries.geom3.isA(result))
   t.notThrows(() => geometries.geom3.validate(result))
-  t.is(measurements.measureVolume(result), 25.431487770547868)
+  t.is(measurements.measureVolume(result), 25.43148777054788)
 })

@@ -1,7 +1,7 @@
-const { maths, utils, extrusions, measurements } = require('@jscad/modeling')
+import { maths, utils, extrusions, measurements } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks')
-const { get_fragments_from_options } = require('./globals.js')
+import { checkOptions } from './commonChecks.js'
+import { get_fragments_from_options } from './globals.js'
 
 /**
  * Rotational extrusion spins a 2D shape around the Z-axis to form a solid which has rotational symmetry.
@@ -14,7 +14,7 @@ const { get_fragments_from_options } = require('./globals.js')
  *
  * @example
  */
-const rotate_extrude = (options, object) => {
+export const rotate_extrude = (options, object) => {
   // check the options
   checkOptions(options, []) // allow named options with defaults
 
@@ -31,7 +31,7 @@ const rotate_extrude = (options, object) => {
   let sweepStart = 0.0
   let sweepAngle = utils.degToRad(angle)
   if (sweepAngle < 0.0) {
-    sweepStart = maths.constants.TAU + sweepAngle
+    sweepStart = maths.TAU + sweepAngle
     sweepAngle = Math.abs(sweepAngle)
   }
 
@@ -50,4 +50,3 @@ const rotate_extrude = (options, object) => {
   return extrusions.extrudeRotate(options, object)
 }
 
-module.exports = rotate_extrude

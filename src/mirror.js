@@ -1,6 +1,6 @@
-const { transforms } = require('@jscad/modeling')
+import { transforms } from '@jscad/modeling'
 
-const { checkOptions, isNumberArray } = require('./commonChecks')
+import { checkOptions, isNumberArray } from './commonChecks.js'
 
 /**
  * Transforms the object into a mirror of the original, as if it were the mirror image seen through a plane intersecting the origin.
@@ -13,7 +13,7 @@ const { checkOptions, isNumberArray } = require('./commonChecks')
  * @example
  * let mirrored1 = mirror({v: [1, 0, 0]}, cube()) // mirror about the X axis
  */
-const mirror = (options, ...objects) => {
+export const mirror = (options, ...objects) => {
   // check the options
   checkOptions(options, []) // allow named options, with defaults
 
@@ -32,4 +32,3 @@ const mirror = (options, ...objects) => {
   return transforms.mirror(options, objects)
 }
 
-module.exports = mirror

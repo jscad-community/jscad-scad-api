@@ -1,31 +1,31 @@
-const { utils } = require('@jscad/modeling')
+import { utils } from '@jscad/modeling'
 
 // Trigonometric Functions
 // NOTE: 360 degree based trig
 
-const cos = (a) => Math.cos(a / 180 * Math.PI)
+export const cos = (a) => Math.cos(a / 180 * Math.PI)
 
-const sin = (a) => Math.sin(a / 180 * Math.PI)
+export const sin = (a) => Math.sin(a / 180 * Math.PI)
 
-const tan = (a) => Math.tan(a / 180 * Math.PI)
+export const tan = (a) => Math.tan(a / 180 * Math.PI)
 
-const acos = (a) => Math.acos(a) / Math.PI * 180
+export const acos = (a) => Math.acos(a) / Math.PI * 180
 
-const asin = (a) => Math.asin(a) / Math.PI * 180
+export const asin = (a) => Math.asin(a) / Math.PI * 180
 
-const atan = (a) => Math.atan(a) / Math.PI * 180
+export const atan = (a) => Math.atan(a) / Math.PI * 180
 
-const atan2 = (a, b) => Math.atan2(a, b) / Math.PI * 180
+export const atan2 = (a, b) => Math.atan2(a, b) / Math.PI * 180
 
 // Other Mathematical Functions
 
-const abs = (a) => Math.abs(a)
+export const abs = (a) => Math.abs(a)
 
-const ceil = (a) => Math.ceil(a)
+export const ceil = (a) => Math.ceil(a)
 
-const concat = (...arr) => utils.flatten(arr)
+export const concat = (...arr) => utils.flatten(arr)
 
-const cross = (a, b) => {
+export const cross = (a, b) => {
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length === 2 && b.length === 2) {
       // WHAT!?!?!? OPENSCAD is so strange
@@ -44,13 +44,13 @@ const cross = (a, b) => {
   return undefined
 }
 
-const exp = (a) => Math.exp(a)
+export const exp = (a) => Math.exp(a)
 
-const floor = (a) => Math.floor(a)
+export const floor = (a) => Math.floor(a)
 
-const ln = (a) => Math.log(a)
+export const ln = (a) => Math.log(a)
 
-const len = (a) => {
+export const len = (a) => {
   if (Array.isArray(a)) return a.length
   if (typeof a === 'string') {
     return a.length
@@ -60,21 +60,21 @@ const len = (a) => {
 
 // let (assigment) is supported by JavaScript
 
-const log = (a) => Math.log10(a)
+export const log = (a) => Math.log10(a)
 
-const max = (...values) => {
+export const max = (...values) => {
   values = utils.flatten(values)
   return Math.max(...values)
 }
 
-const min = (...values) => {
+export const min = (...values) => {
   values = utils.flatten(values)
   return Math.min(...values)
 }
 
 // mod (operator %) is supported by JavaScript
 
-const norm = (v) => {
+export const norm = (v) => {
   if (Array.isArray(v)) {
     const sumofsqrs = v.reduce((a, v) => a + (v * v), 0)
     return Math.sqrt(sumofsqrs)
@@ -82,9 +82,9 @@ const norm = (v) => {
   return undefined
 }
 
-const pow = (a, b) => Math.pow(a, b)
+export const pow = (a, b) => Math.pow(a, b)
 
-const rands = (min, max, vn, seed) => {
+export const rands = (min, max, vn, seed) => {
   const v = new Array(vn)
   for (let i = 0; i < vn; i++) {
     v[i] = Math.random() * (max - min) + min
@@ -92,13 +92,13 @@ const rands = (min, max, vn, seed) => {
   return v
 }
 
-const round = (a) => Math.round(a)
+export const round = (a) => Math.round(a)
 
-const sign = (a) => a < 0 ? -1 : (a > 1 ? 1 : 0)
+export const sign = (a) => a < 0 ? -1 : (a > 1 ? 1 : 0)
 
-const sqrt = (a) => Math.sqrt(a)
+export const sqrt = (a) => Math.sqrt(a)
 
-const lookup = (ix, v) => {
+export const lookup = (ix, v) => {
   let r = 0
   for (let i = 0; i < v.length; i++) {
     let a0 = v[i]
@@ -122,32 +122,3 @@ const lookup = (ix, v) => {
   return r
 }
 
-module.exports = {
-  // trig
-  sin,
-  cos,
-  asin,
-  acos,
-  tan,
-  atan,
-  atan2,
-  // other
-  abs,
-  ceil,
-  concat,
-  cross,
-  exp,
-  floor,
-  ln,
-  len,
-  log,
-  lookup,
-  max,
-  min,
-  norm,
-  pow,
-  rands,
-  round,
-  sign,
-  sqrt
-}

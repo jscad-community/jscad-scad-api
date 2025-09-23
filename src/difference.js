@@ -1,4 +1,4 @@
-const { booleans } = require('@jscad/modeling')
+import { booleans } from '@jscad/modeling'
 
 /**
  * Subtracts all elements from the first element (logical AND NOT).
@@ -11,6 +11,5 @@ const { booleans } = require('@jscad/modeling')
  * @example
  * let newshape = difference(sphere(), cube())
  */
-const difference = (...elements) => booleans.subtract(elements)
+export const difference = (...elements) => booleans.subtract(elements)
 
-module.exports = difference

@@ -7,7 +7,7 @@
  *
  * If not then an error with the given message is thrown, and processing stops.
  */
-const assert = (result, message = '') => {
+export const assert = (result, message = '') => {
   if (result) return
   throw new Error(message)
 }
@@ -17,21 +17,15 @@ const assert = (result, message = '') => {
  *
  * @See str()
  */
-const echo = (...contents) => console.log(...contents)
+export const echo = (...contents) => console.log(...contents)
 
 /**
  * Return the version as a vector of three numbers.
  */
-const version = () => [2024, 4, 1]
+export const version = () => [2024, 4, 1]
 
 /**
  * Return the version as a number, e.g. 20240401.
  */
-const version_num = () => 20240401
+export const version_num = () => 20240401
 
-module.exports = {
-  assert,
-  echo,
-  version,
-  version_num
-}

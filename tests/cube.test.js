@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { cube } = require('../src/index.js')
+import { cube } from '../src/index.js'
 
 test('cube (defaults)', (t) => {
   const obs = cube()

@@ -1,7 +1,7 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks')
-const { get_fragments_from_options } = require('./globals.js')
+import { checkOptions } from './commonChecks.js'
+import { get_fragments_from_options } from './globals.js'
 
 /**
  * Creates a cylinder centered vertically about the Z axis.
@@ -28,7 +28,7 @@ const { get_fragments_from_options } = require('./globals.js')
  * let cylinder4 = cylinder({h: 10, d1: 20, d2: 10})
  * let cylinder5 = cylinder({h: 10, r1: 10, r2: 0, $fn: 32})
  */
-const cylinder = (options) => {
+export const cylinder = (options) => {
   // check the options
   options = checkOptions(options, false) // allow default options
 
@@ -83,4 +83,3 @@ const cylinder = (options) => {
   return primitives.cylinderElliptic(options)
 }
 
-module.exports = cylinder

@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { circle, cube, color } = require('../src/index.js')
+import { circle, cube, color } from '../src/index.js'
 
 test('color (options)', (t) => {
   // color 2D object
@@ -10,7 +10,7 @@ test('color (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 2.377641290737884)
+  t.is(measurements.measureArea(obs), 2.3776412907378837)
 
   // color 3D object
   obs = color({ c: 'red' }, cube())

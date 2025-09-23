@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { square, cube, mirror, translate } = require('../src/index.js')
+import { square, cube, mirror, translate } from '../src/index.js'
 
 test('mirror (options)', (t) => {
   // mirror 2D object

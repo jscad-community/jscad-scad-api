@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { circle, square, linear_extrude } = require('../src/index.js')
+import { circle, square, linear_extrude } from '../src/index.js'
 
 test('linear_extrude (defaults)', (t) => {
   // linear extrude 2D object
@@ -10,7 +10,7 @@ test('linear_extrude (defaults)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 237.76412907378855)
+  t.is(measurements.measureVolume(obs), 237.76412907378852)
 })
 
 test('linear_extrude (height)', (t) => {
@@ -19,7 +19,7 @@ test('linear_extrude (height)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 23.77641290737884)
+  t.is(measurements.measureVolume(obs), 23.776412907378838)
 })
 
 test('linear_extrude (twist)', (t) => {
@@ -46,5 +46,5 @@ test('linear_extrude (all)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 259.7713668865978)
+  t.is(measurements.measureVolume(obs), 259.77136688659783)
 })

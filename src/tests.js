@@ -1,12 +1,12 @@
-const is_bool = (value) => (typeof value === 'boolean')
+export const is_bool = (value) => (typeof value === 'boolean')
 
-const is_function = (value) => (typeof value === 'function')
+export const is_function = (value) => (typeof value === 'function')
 
-const is_list = (value) => Array.isArray(value)
+export const is_list = (value) => Array.isArray(value)
 
-const is_num = (value) => (typeof value === 'number' && value !== Math.NaN)
+export const is_num = (value) => (typeof value === 'number' && value !== Math.NaN)
 
-const is_string = (value) => (typeof value === 'string')
+export const is_string = (value) => (typeof value === 'string')
 
 /**
  * Determine if the give value is undefined.
@@ -16,13 +16,5 @@ const is_string = (value) => (typeof value === 'string')
  *
  * @example
  */
-const is_undef = (value) => (value === null || value === undefined)
+export const is_undef = (value) => (value === null || value === undefined)
 
-module.exports = {
-  is_bool,
-  is_function,
-  is_list,
-  is_num,
-  is_string,
-  is_undef
-}

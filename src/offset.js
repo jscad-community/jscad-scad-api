@@ -1,7 +1,7 @@
-const { expansions } = require('@jscad/modeling')
+import { expansions } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks.js')
-const { get_fragments_from_options } = require('./globals.js')
+import { checkOptions } from './commonChecks.js'
+import { get_fragments_from_options } from './globals.js'
 
 /**
  * Offset generates a new interior or exterior outline from an existing element.
@@ -21,7 +21,7 @@ const { get_fragments_from_options } = require('./globals.js')
  *
  * @example
  */
-const offset = (options, ...elements) => {
+export const offset = (options, ...elements) => {
   // check the options
   options = checkOptions(options, []) // allow named options, with various options
 
@@ -62,4 +62,3 @@ const offset = (options, ...elements) => {
   return expansions.offset(options, elements)
 }
 
-module.exports = offset

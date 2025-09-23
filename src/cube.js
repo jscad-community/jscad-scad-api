@@ -1,6 +1,6 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions, isGT, isNumberArray } = require('./commonChecks')
+import { checkOptions, isGT, isNumberArray } from './commonChecks.js'
 
 /**
  * Creates a cube.
@@ -17,7 +17,7 @@ const { checkOptions, isGT, isNumberArray } = require('./commonChecks')
  * let cube2 = cube({size: [5, 10, 20]})
  * let cube2 = cube({size: [5, 5, 3], center: true})
  */
-const cube = (options) => {
+export const cube = (options) => {
   // check the options
   checkOptions(options, false) // allow default options
 
@@ -49,4 +49,3 @@ const cube = (options) => {
   return primitives.cuboid(options)
 }
 
-module.exports = cube

@@ -1,6 +1,6 @@
-const { colors } = require('@jscad/modeling')
+import { colors } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks')
+import { checkOptions } from './commonChecks.js'
 
 /**
  * Displays the elements using the specified RGB color.
@@ -18,7 +18,7 @@ const { checkOptions } = require('./commonChecks')
  * let color1 = color([1,0,0,1], sphere())
  * let color2 = color("red", sphere())
  */
-const color = (options, ...elements) => {
+export const color = (options, ...elements) => {
   checkOptions(options, ['c'])
 
   const defaults = {
@@ -49,4 +49,3 @@ const color = (options, ...elements) => {
   return colors.colorize(rgb, elements)
 }
 
-module.exports = color

@@ -1,15 +1,15 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { circle } = require('../src/index.js')
+import { circle } from '../src/index.js'
 
 test('circle (defaults)', (t) => {
   const obs = circle()
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 2.377641290737884)
+  t.is(measurements.measureArea(obs), 2.3776412907378837)
 })
 
 test('circle (options)', (t) => {
@@ -18,14 +18,14 @@ test('circle (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 26.450336353161287)
+  t.is(measurements.measureArea(obs), 26.45033635316129)
 
   // using diameter
   obs = circle({ d: 6 })
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 26.450336353161287)
+  t.is(measurements.measureArea(obs), 26.45033635316129)
 
   // using F parameters
   obs = circle({ r: 5, $fn: 8 })
@@ -38,7 +38,7 @@ test('circle (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 73.47315653655915)
+  t.is(measurements.measureArea(obs), 73.47315653655913)
 
   obs = circle({ r: 5, $fs: 0.5, $fa: 3 })
 

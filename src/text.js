@@ -8,7 +8,7 @@
  * @example
  * let charData = vector_char(0, 12.2, 'b')
  */
-const vector_char = (x, y, char) => {
+export const vector_char = (x, y, char) => {
   char = char.charCodeAt(0)
   char -= 32
   if (char < 0 || char >= 95) return { width: 0, segments: [] }
@@ -41,7 +41,7 @@ const vector_char = (x, y, char) => {
  * @example
  * let stringData = vector_text(0, 12.2, 'b')
  */
-const vector_text = (x, y, string) => {
+export const vector_text = (x, y, string) => {
   let output = []
   const x0 = x
   for (let i = 0; i < string.length; i++) {
@@ -631,7 +631,3 @@ const simplexFont = [
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 ]
 
-module.exports = {
-  vector_char,
-  vector_text
-}

@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { square, offset } = require('../src/index.js')
+import { square, offset } from '../src/index.js'
 
 test('offset (defaults)', (t) => {
   // offset 2D object

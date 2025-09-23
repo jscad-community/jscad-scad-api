@@ -1,7 +1,7 @@
-const { primitives } = require('@jscad/modeling')
+import { primitives } from '@jscad/modeling'
 
-const { checkOptions, isGT, isGTE } = require('./commonChecks.js')
-const { get_fragments_from_options } = require('./globals.js')
+import { checkOptions, isGT, isGTE } from './commonChecks.js'
+import { get_fragments_from_options } from './globals.js'
 
 /**
  * Creates a circle at the origin.
@@ -19,7 +19,7 @@ const { get_fragments_from_options } = require('./globals.js')
  * let circle3 = circle({r: 15, $fa: 12, $fs: 2})
  * let circle4 = circle({r: 10, $fn: 6})
  */
-const circle = (options) => {
+export const circle = (options) => {
   // check the options
   options = checkOptions(options, false) // allow default options
 
@@ -46,4 +46,3 @@ const circle = (options) => {
   return primitives.circle(options)
 }
 
-module.exports = circle

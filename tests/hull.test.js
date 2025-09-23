@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { square, cube, hull, translate } = require('../src/index.js')
+import { square, cube, hull, translate } from '../src/index.js'
 
 test('hull (2D and 3D objects)', (t) => {
   let obs = hull(square(), translate({ v: [3, 3] }, square()))

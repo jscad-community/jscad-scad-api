@@ -1,7 +1,7 @@
-const test = require('ava')
+import test from 'ava'
 
-const { cos, sin, tan, acos, asin, atan, atan2 } = require('../src/index.js')
-const { abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt } = require('../src/index.js')
+import { cos, sin, tan, acos, asin, atan, atan2 } from '../src/index.js'
+import { abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, norm, pow, rands, round, sign, sqrt } from '../src/index.js'
 
 test('maths (trigonometric)', (t) => {
   t.is(cos(0), 1)

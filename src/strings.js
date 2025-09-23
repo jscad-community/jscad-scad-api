@@ -1,4 +1,4 @@
-const { utils } = require('@jscad/modeling')
+import { utils } from '@jscad/modeling'
 
 /**
  * Convert all arguments to strings and concatenated.
@@ -6,13 +6,12 @@ const { utils } = require('@jscad/modeling')
  * NOTE: Arguments are concatenated as given, no spaces added.
  *
  */
-const str = (...contents) => contents.join('')
+export const str = (...contents) => contents.join('')
 
-const chr = (...codepoints) => {
+export const chr = (...codepoints) => {
   codepoints = utils.flatten(codepoints)
   return String.fromCodePoint(...codepoints)
 }
 
-const ord = (str) => str.charCodeAt(0)
+export const ord = (str) => str.charCodeAt(0)
 
-module.exports = { str, chr, ord }

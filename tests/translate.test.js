@@ -1,8 +1,8 @@
-const test = require('ava')
+import test from 'ava'
 
-const { geometries, measurements } = require('@jscad/modeling')
+import { geometries, measurements } from '@jscad/modeling'
 
-const { circle, cube, translate } = require('../src/index.js')
+import { circle, cube, translate } from '../src/index.js'
 
 test('translate (options)', (t) => {
   // translate 2D object
@@ -10,7 +10,7 @@ test('translate (options)', (t) => {
 
   t.true(geometries.geom2.isA(obs))
   t.notThrows(() => geometries.geom2.validate(obs))
-  t.is(measurements.measureArea(obs), 2.3776412907378845)
+  t.is(measurements.measureArea(obs), 2.377641290737884)
 
   // translate 3D object
   obs = translate({ v: [3, 3, 3] }, cube())

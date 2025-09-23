@@ -1,6 +1,6 @@
-const test = require('ava')
+import test from 'ava'
 
-const { str, chr, ord } = require('../src/index.js')
+import { str, chr, ord } from '../src/index.js'
 
 test('strings (all)', (t) => {
   const number = 2

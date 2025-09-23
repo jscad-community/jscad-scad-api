@@ -1,6 +1,7 @@
-const { maths, transforms, geometries, extrusions, utils } = require('@jscad/modeling')
+import { maths, transforms, extrusions, utils } from '@jscad/modeling'
+import { geom2, slice } from '@jscad/modeling'
 
-const { checkOptions, isGT, isGTE, isNumberArray } = require('./commonChecks.js')
+import { checkOptions, isGT, isGTE, isNumberArray } from './commonChecks.js'
 
 const getScale = (scale, steps) => {
   if (scale > 0.0) return (scale - 1.0) / steps
@@ -24,7 +25,7 @@ const getScale = (scale, steps) => {
  * @example
  * let shape1 = linear_extrude({height: 10}, square())
  */
-const linear_extrude = (options, element) => {
+export const linear_extrude = (options, element) => {
   // check the options
   options = checkOptions(options, []) // allow named options, with defaults
 
@@ -70,10 +71,10 @@ const linear_extrude = (options, element) => {
   // console.log("twistScale",twistScale)
 
   // create a slice (3D) from the element (2D) for extruding
-  const baseSides = geometries.geom2.toSides(element)
+  const baseSides = geom2.toSides(element)
   if (baseSides.length === 0) throw new Error('the given element cannot be empty')
 
-  const baseSlice = extrusions.slice.fromSides(baseSides)
+  const baseSlice = slice.fromGeom2(element)
 
   // set up the callback function to create each step
   const matrix = maths.mat4.create()
@@ -101,7 +102,7 @@ const linear_extrude = (options, element) => {
       matrix, matrix, maths.mat4.fromScaling(matrixScale, Zscale)
     )
 
-    return extrusions.slice.transform(matrix, base)
+    return slice.transform(matrix, base)
   }
 
   options = {
@@ -120,4 +121,3 @@ const linear_extrude = (options, element) => {
   return output
 }
 
-module.exports = linear_extrude

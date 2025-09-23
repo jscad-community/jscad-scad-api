@@ -1,6 +1,6 @@
-const { transforms, maths } = require('@jscad/modeling')
+import { transforms, maths } from '@jscad/modeling'
 
-const { checkOptions } = require('./commonChecks')
+import { checkOptions } from './commonChecks.js'
 
 // convert the SCAD matrix to JSCAD equivalent
 // NOTE: SCAD matrix is 4x3 array, or 4x4 array
@@ -23,7 +23,7 @@ const convertMatrix = (s) => maths.mat4.fromValues(
  *
  * @example
  */
-const multmatrix = (options, ...objects) => {
+export const multmatrix = (options, ...objects) => {
   // check the options
   checkOptions(options, ['m']) // allow named options, with m option
 
@@ -41,4 +41,3 @@ const multmatrix = (options, ...objects) => {
   return transforms.transform(m, objects)
 }
 
-module.exports = multmatrix

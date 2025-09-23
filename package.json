@@ -1,6 +1,6 @@
 {
   "name": "jscad-scad-api",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "JSCAD bridge for OpenSCAD designs",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "main": "src/index.js",
   "module": "src/index.js",
   "scripts": {
-    "coverage": "c8 --all --reporter=html --reporter=text pnpm test",
+    "coverage": "c8 --all --reporter=html --reporter=text npm run tests",
     "tests": "ava 'tests/*.test.js' --verbose --timeout 2m",
     "lint": "standardx './**/*.js'"
   },

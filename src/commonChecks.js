@@ -29,4 +29,3 @@ export const isGT = (value, constant) => (Number.isFinite(value) && value > cons
 
 // verify that the value is a Number greater than or equal to the constant
 export const isGTE = (value, constant) => (Number.isFinite(value) && value >= constant)
-

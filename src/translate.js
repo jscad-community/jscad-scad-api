@@ -22,4 +22,3 @@ export const translate = (options, ...elements) => {
 
   return transforms.translate(options.v, elements)
 }
-

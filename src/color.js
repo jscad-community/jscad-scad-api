@@ -1,4 +1,4 @@
-import { colors } from '@jscad/modeling'
+import { colorize, colorNameToRgb, hexToRgb } from '@jscad/modeling'
 
 import { checkOptions } from './commonChecks.js'
 
@@ -35,10 +35,10 @@ export const color = (options, ...elements) => {
   }
 
   if (typeof c === 'string') {
-    rgb = colors.colorNameToRgb(c)
+    rgb = colorNameToRgb(c)
     if (!rgb) {
       // not a color name so try CSS color notation
-      rgb = colors.hexToRgb(c)
+      rgb = hexToRgb(c)
     }
   }
 
@@ -46,6 +46,5 @@ export const color = (options, ...elements) => {
 
   if (rgb.length < 4) rgb.push(alpha)
 
-  return colors.colorize(rgb, elements)
+  return colorize(rgb, elements)
 }
-

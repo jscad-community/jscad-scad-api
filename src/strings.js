@@ -1,4 +1,4 @@
-import { utils } from '@jscad/modeling'
+import { flatten } from '@jscad/modeling'
 
 /**
  * Convert all arguments to strings and concatenated.
@@ -9,9 +9,8 @@ import { utils } from '@jscad/modeling'
 export const str = (...contents) => contents.join('')
 
 export const chr = (...codepoints) => {
-  codepoints = utils.flatten(codepoints)
+  codepoints = flatten(codepoints)
   return String.fromCodePoint(...codepoints)
 }
 
 export const ord = (str) => str.charCodeAt(0)
-

@@ -12,4 +12,3 @@ import { booleans } from '@jscad/modeling'
  * let newshape = union(sphere(), cube())
  */
 export const union = (...elements) => booleans.union(elements)
-

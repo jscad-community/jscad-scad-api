@@ -36,4 +36,3 @@ export const polygon = (options) => {
 
   return primitives.polygon(options)
 }
-

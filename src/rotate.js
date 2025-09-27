@@ -1,4 +1,4 @@
-import { maths, transforms, utils } from '@jscad/modeling'
+import { mat4, transform, degToRad } from '@jscad/modeling'
 
 import { checkOptions, isNumberArray } from './commonChecks.js'
 
@@ -41,18 +41,17 @@ export const rotate = (options, ...objects) => {
   if (!isNumberArray(v, 3)) throw new Error('v must be an array of values')
 
   // convert angles to RADIANS
-  const angles = a.map((deg) => utils.degToRad(deg))
+  const angles = a.map((deg) => degToRad(deg))
   while (angles.length < 3) angles.push(0)
 
   // perform the rotations as per SCAD
-  const rotations = maths.mat4.create()
-  maths.mat4.fromVectorRotation(rotations, [0, 0, 1], v)
+  const rotations = mat4.create()
+  mat4.fromVectorRotation(rotations, [0, 0, 1], v)
 
-  maths.mat4.rotateZ(rotations, rotations, angles[2])
-  maths.mat4.rotateY(rotations, rotations, angles[1])
-  maths.mat4.rotateX(rotations, rotations, angles[0])
+  mat4.rotateZ(rotations, rotations, angles[2])
+  mat4.rotateY(rotations, rotations, angles[1])
+  mat4.rotateX(rotations, rotations, angles[0])
 
   // apply the rotations to the objects
-  return transforms.transform(rotations, objects)
+  return transform(rotations, objects)
 }
-

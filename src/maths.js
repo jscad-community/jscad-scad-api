@@ -1,4 +1,4 @@
-import { utils } from '@jscad/modeling'
+import { flatten } from '@jscad/modeling'
 
 // Trigonometric Functions
 // NOTE: 360 degree based trig
@@ -23,7 +23,7 @@ export const abs = (a) => Math.abs(a)
 
 export const ceil = (a) => Math.ceil(a)
 
-export const concat = (...arr) => utils.flatten(arr)
+export const concat = (...arr) => flatten(arr)
 
 export const cross = (a, b) => {
   if (Array.isArray(a) && Array.isArray(b)) {
@@ -63,12 +63,12 @@ export const len = (a) => {
 export const log = (a) => Math.log10(a)
 
 export const max = (...values) => {
-  values = utils.flatten(values)
+  values = flatten(values)
   return Math.max(...values)
 }
 
 export const min = (...values) => {
-  values = utils.flatten(values)
+  values = flatten(values)
   return Math.min(...values)
 }
 
@@ -121,4 +121,3 @@ export const lookup = (ix, v) => {
   }
   return r
 }
-

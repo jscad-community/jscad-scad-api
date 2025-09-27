@@ -61,4 +61,3 @@ export const offset = (options, ...elements) => {
 
   return expansions.offset(options, elements)
 }
-

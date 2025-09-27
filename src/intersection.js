@@ -1,4 +1,4 @@
-import { booleans } from '@jscad/modeling'
+import { intersect } from '@jscad/modeling'
 
 /**
  * Creates the intersection all elements (logical AND).
@@ -12,5 +12,4 @@ import { booleans } from '@jscad/modeling'
  * @example
  * let newshape = intersection(sphere(), cube())
  */
-export const intersection = (...elements) => booleans.intersect(elements)
-
+export const intersection = (...elements) => intersect(elements)

@@ -31,7 +31,7 @@ test('cylinder (options)', (t) => {
 
   t.true(geometries.geom3.isA(obs))
   t.notThrows(() => geometries.geom3.validate(obs))
-  t.is(measurements.measureVolume(obs), 26.45033635316128706807826039752)
+  t.is(measurements.measureVolume(obs), 26.450336353161287)
 
   obs = cylinder({ h: 10, d1: 2, d2: 6, center: true })
 

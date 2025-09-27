@@ -47,4 +47,3 @@ export const sphere = (options) => {
 
   return primitives.sphere(options)
 }
-

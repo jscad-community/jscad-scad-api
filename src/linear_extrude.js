@@ -1,5 +1,4 @@
-import { maths, transforms, extrusions, utils } from '@jscad/modeling'
-import { geom2, slice } from '@jscad/modeling'
+import { geom2, slice, mat4, vec3, centerZ, degToRad, extrudeFromSlices } from '@jscad/modeling'
 
 import { checkOptions, isGT, isGTE, isNumberArray } from './commonChecks.js'
 
@@ -57,14 +56,14 @@ export const linear_extrude = (options, element) => {
   }
 
   // WEIRD AGAIN... why clockwise twist!!!
-  const twistAngle = utils.degToRad(twist) / twistSteps * -1.0 + 0.0 // rotation to apply to each step
+  const twistAngle = degToRad(twist) / twistSteps * -1.0 + 0.0 // rotation to apply to each step
 
   const twistScale = [
     getScale(scale[0], twistSteps),
     getScale(scale[1], twistSteps)
   ] // scale to apply to each step
 
-  const offsetv = maths.vec3.fromValues(0, 0, height)
+  const offsetv = vec3.fromValues(0, 0, height)
 
   // console.log("twistSteps",twistSteps)
   // console.log("twistAngle",twistAngle)
@@ -77,29 +76,29 @@ export const linear_extrude = (options, element) => {
   const baseSlice = slice.fromGeom2(element)
 
   // set up the callback function to create each step
-  const matrix = maths.mat4.create()
-  const matrixRotation = maths.mat4.create()
-  const matrixOffset = maths.mat4.create()
-  const matrixScale = maths.mat4.create()
+  const matrix = mat4.create()
+  const matrixRotation = mat4.create()
+  const matrixOffset = mat4.create()
+  const matrixScale = mat4.create()
 
-  const vecZoffset = maths.mat4.create()
-  // const vecZscale = maths.mat4.create()
+  const vecZoffset = mat4.create()
+  // const vecZscale = mat4.create()
 
   const createTwist = (progress, index, base) => {
     const Zrotation = index * twistAngle
-    const Zoffset = maths.vec3.scale(vecZoffset, offsetv, index / twistSteps)
-    const Zscale = maths.vec3.fromValues((index * twistScale[0]) + 1.0, (index * twistScale[1]) + 1.0, 1.0)
+    const Zoffset = vec3.scale(vecZoffset, offsetv, index / twistSteps)
+    const Zscale = vec3.fromValues((index * twistScale[0]) + 1.0, (index * twistScale[1]) + 1.0, 1.0)
 
     // apply scale, offset, rotation
-    maths.mat4.identity(matrix)
-    maths.mat4.multiply(
-      matrix, matrix, maths.mat4.fromZRotation(matrixRotation, Zrotation)
+    mat4.identity(matrix)
+    mat4.multiply(
+      matrix, matrix, mat4.fromZRotation(matrixRotation, Zrotation)
     )
-    maths.mat4.multiply(
-      matrix, matrix, maths.mat4.fromTranslation(matrixOffset, Zoffset)
+    mat4.multiply(
+      matrix, matrix, mat4.fromTranslation(matrixOffset, Zoffset)
     )
-    maths.mat4.multiply(
-      matrix, matrix, maths.mat4.fromScaling(matrixScale, Zscale)
+    mat4.multiply(
+      matrix, matrix, mat4.fromScaling(matrixScale, Zscale)
     )
 
     return slice.transform(matrix, base)
@@ -113,11 +112,10 @@ export const linear_extrude = (options, element) => {
     callback: createTwist
   }
 
-  let output = extrusions.extrudeFromSlices(options, baseSlice)
+  let output = extrudeFromSlices(options, baseSlice)
 
   if (center === true) {
-    output = transforms.centerZ(output)
+    output = centerZ(output)
   }
   return output
 }
-

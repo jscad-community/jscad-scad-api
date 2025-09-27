@@ -32,4 +32,3 @@ export const scale = (options, ...elements) => {
 
   return transforms.scale(v, elements)
 }
-

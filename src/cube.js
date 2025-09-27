@@ -1,4 +1,4 @@
-import { primitives } from '@jscad/modeling'
+import { cuboid } from '@jscad/modeling'
 
 import { checkOptions, isGT, isNumberArray } from './commonChecks.js'
 
@@ -46,6 +46,5 @@ export const cube = (options) => {
   // determine the options for JSCAD
   options = { size, center: offset }
 
-  return primitives.cuboid(options)
+  return cuboid(options)
 }
-

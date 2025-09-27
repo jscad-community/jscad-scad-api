@@ -8,14 +8,17 @@
   },
   "type": "module",
   "main": "src/index.js",
-  "module": "src/index.js",
+  "unpkg": "dist/jscad-scad-api.min.js",
+  "module": "dist/jscad-scad-api.es.js",
   "scripts": {
+    "build": "rollup --config",
     "coverage": "c8 --all --reporter=html --reporter=text npm run tests",
     "tests": "ava 'tests/*.test.js' --verbose --timeout 2m",
     "lint": "standardx './**/*.js'"
   },
   "keywords": [
     "openscad",
+    "translator",
     "jscad"
   ],
   "license": "MIT",
@@ -23,8 +26,13 @@
     "@jscad/modeling": "3.0.2-alpha.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "ava": "^6.1.0",
     "c8": "^8.0.0",
+    "rollup": "^4.52.2",
+    "rollup-plugin-banner": "^0.2.1",
     "standardx": "^7.0.0"
   },
   "publishConfig": {

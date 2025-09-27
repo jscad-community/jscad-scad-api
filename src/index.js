@@ -2,33 +2,33 @@
 export { $fn, $fs, $fa } from './globals.js'
 
 // primitives
-export {circle} from './circle.js'
-export {cube} from './cube.js'
-export {cylinder} from './cylinder.js'
-export {polygon} from './polygon.js'
-export {polyhedron} from './polyhedron.js'
-export {sphere} from './sphere.js'
-export {square} from './square.js'
+export { circle } from './circle.js'
+export { cube } from './cube.js'
+export { cylinder } from './cylinder.js'
+export { polygon } from './polygon.js'
+export { polyhedron } from './polyhedron.js'
+export { sphere } from './sphere.js'
+export { square } from './square.js'
 
 // transforms
-export {color} from './color.js'
-export {hull} from './hull.js'
-export {mirror} from './mirror.js'
-export {multmatrix} from './multmatrix.js'
-export {offset} from './offset.js'
-export {resize} from './resize.js'
-export {rotate} from './rotate.js'
-export {scale} from './scale.js'
-export {translate }from './translate.js'
+export { color } from './color.js'
+export { hull } from './hull.js'
+export { mirror } from './mirror.js'
+export { multmatrix } from './multmatrix.js'
+export { offset } from './offset.js'
+export { resize } from './resize.js'
+export { rotate } from './rotate.js'
+export { scale } from './scale.js'
+export { translate } from './translate.js'
 
 // operations
-export {linear_extrude} from './linear_extrude.js'
-export {rotate_extrude} from './rotate_extrude.js'
+export { linear_extrude } from './linear_extrude.js'
+export { rotate_extrude } from './rotate_extrude.js'
 
 // booleans
-export {difference} from './difference.js'
-export {intersection} from './intersection.js'
-export {union} from './union.js'
+export { difference } from './difference.js'
+export { intersection } from './intersection.js'
+export { union } from './union.js'
 
 // string functions
 export { str, chr, ord } from './strings.js'
@@ -44,4 +44,3 @@ export { is_undef, is_bool, is_function, is_list, is_num, is_string } from './te
 
 // language features
 export { assert, echo, version, version_num } from './features.js'
-

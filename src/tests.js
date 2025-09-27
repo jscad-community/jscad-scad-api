@@ -17,4 +17,3 @@ export const is_string = (value) => (typeof value === 'string')
  * @example
  */
 export const is_undef = (value) => (value === null || value === undefined)
-

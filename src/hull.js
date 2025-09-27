@@ -12,4 +12,3 @@ import { hulls } from '@jscad/modeling'
  * let hulled = hull(square(), circle())
  */
 export const hull = (...objects) => hulls.hull(objects)
-

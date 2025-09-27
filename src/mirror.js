@@ -31,4 +31,3 @@ export const mirror = (options, ...objects) => {
 
   return transforms.mirror(options, objects)
 }
-

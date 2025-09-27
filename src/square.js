@@ -1,4 +1,4 @@
-import { primitives } from '@jscad/modeling'
+import { rectangle } from '@jscad/modeling'
 
 import { checkOptions, isNumberArray } from './commonChecks.js'
 
@@ -44,6 +44,5 @@ export const square = (options) => {
   // determine options for JSCAD
   options = { size, center: offset }
 
-  return primitives.rectangle(options)
+  return rectangle(options)
 }
-

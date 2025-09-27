@@ -22,4 +22,3 @@ export const get_fragments_from_options = (options, r) => {
 
   return get_fragments_from_r(r, fn, fs, fa)
 }
-

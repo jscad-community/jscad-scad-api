@@ -40,4 +40,3 @@ export const polyhedron = (options) => {
 
   return primitives.polyhedron(options)
 }
-

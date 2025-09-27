@@ -28,4 +28,3 @@ export const version = () => [2024, 4, 1]
  * Return the version as a number, e.g. 20240401.
  */
 export const version_num = () => 20240401
-

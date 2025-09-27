@@ -1,4 +1,4 @@
-import { maths, utils, extrusions, measurements } from '@jscad/modeling'
+import { vec2, TAU, degToRad, extrudeRotate, measureCenter } from '@jscad/modeling'
 
 import { checkOptions } from './commonChecks.js'
 import { get_fragments_from_options } from './globals.js'
@@ -29,15 +29,15 @@ export const rotate_extrude = (options, object) => {
   // convert angle to sweep angle and sweep stop angle
   // NOTE: OPENSCAD start angle is zero, sweeping +/- degrees
   let sweepStart = 0.0
-  let sweepAngle = utils.degToRad(angle)
+  let sweepAngle = degToRad(angle)
   if (sweepAngle < 0.0) {
-    sweepStart = maths.TAU + sweepAngle
+    sweepStart = TAU + sweepAngle
     sweepAngle = Math.abs(sweepAngle)
   }
 
   // calculate the number of segments to create
-  const center = measurements.measureCenter(object)
-  const distance = maths.vec2.length(center)
+  const center = measureCenter(object)
+  const distance = vec2.length(center)
   const sweepSegments = get_fragments_from_options(options, distance)
 
   // determine the options for JSCAD
@@ -47,6 +47,5 @@ export const rotate_extrude = (options, object) => {
     segments: sweepSegments
   }
 
-  return extrusions.extrudeRotate(options, object)
+  return extrudeRotate(options, object)
 }
-

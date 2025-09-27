@@ -1,4 +1,4 @@
-import { transforms, measurements } from '@jscad/modeling'
+import { scale, measureDimensions } from '@jscad/modeling'
 
 import { checkOptions, isNumberArray } from './commonChecks.js'
 
@@ -52,7 +52,7 @@ export const resize = (options, element) => {
 
   // calculate scales to achieve the new sizes
   const scales = [1, 1, 1]
-  const dimensions = measurements.measureDimensions(element)
+  const dimensions = measureDimensions(element)
 
   if (newsize[0] > 0 && dimensions[0] > 0) {
     scales[0] = newsize[0] / dimensions[0]
@@ -66,6 +66,5 @@ export const resize = (options, element) => {
     scales[2] = newsize[2] / dimensions[2]
   }
 
-  return transforms.scale(scales, element)
+  return scale(scales, element)
 }
-

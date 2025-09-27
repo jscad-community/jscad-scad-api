@@ -1,4 +1,4 @@
-import { primitives } from '@jscad/modeling'
+import { cylinderElliptic } from '@jscad/modeling'
 
 import { checkOptions } from './commonChecks.js'
 import { get_fragments_from_options } from './globals.js'
@@ -80,6 +80,5 @@ export const cylinder = (options) => {
     segments
   }
 
-  return primitives.cylinderElliptic(options)
+  return cylinderElliptic(options)
 }
-

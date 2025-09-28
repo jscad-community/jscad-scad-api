@@ -7,7 +7,7 @@
 This packages provides a OpenSCAD-like API. See [OpenSCAD User Manual](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual)
 
 This allows OpenSCAD designs to be ported to JSCAD, and gives OpenSCAD designers a slightly easier learning experience.
-However, OpenSCAD designs need to be converted to JSCAD (and JavaScript).
+However, OpenSCAD designs still need to be converted to JSCAD (and JavaScript).
 
 ## Usage
 
@@ -24,10 +24,12 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 
 | Shape   | Parameters    | Notes       |
 | ------- | ------------- | ----------- |
-| square  | size, center  |             |
 | circle  | r, d          |             |
 | polygon | points, paths |             |
+| square  | size, center  |             |
 | text    |               | UNSUPPORTED |
+
+NOTE: JSCAD also supports arc, ellipse, line, roundedRectangle, star, and triangle.
 
 ### 3D Objects
 
@@ -38,6 +40,8 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | cylinder   | h, r, r1, r2, d, d1, d2, center |             |
 | polyhedron | points, faces                   |             |
 | surface    |                                 | UNSUPPORTED |
+
+NOTE: JSCAD also supports cylinderElliptic, ellipsoid, geodesicSphere, roundedCuboid, and torus.
 
 ### Transforms
 
@@ -54,6 +58,10 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | minkowski      |                   | UNSUPPORTED |
 | hull           |                   |             |
 
+NOTE: JSCAD also supports align and center.
+
+NOTE: JSCAD also supports measurements of area, bounding box, bounding sphers, center, center of mass, demisions, and volume.
+
 ### Dimension Changes 2D/3D
 
 | Function       | Parameters                              | Notes       |
@@ -62,6 +70,8 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | linear_extrude | height, v, center, twist, slices, scale |             |
 | rotate_extrude | angle                                   |             |
 
+NOTE: JSCAD also supports extrudeHelical and extrudeRectangular.
+
 ### Boolean Combinations
 
 | Function     | Parameters | Notes |
@@ -69,6 +79,8 @@ For example, OpenSCAD translate([1,2,3]) needs to be changed to translate(v=[1,2
 | union        |            |       |
 | difference   |            |       |
 | intersection |            |       |
+
+NOTE: JSCAD also supports scission.
 
 ### Mathematical Functions
 - cos

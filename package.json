@@ -18,7 +18,8 @@
   },
   "keywords": [
     "openscad",
-    "translator",
+    "bridge",
+    "api",
     "jscad"
   ],
   "license": "MIT",

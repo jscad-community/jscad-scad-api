@@ -50,6 +50,7 @@
   },
   "eslintConfig": {
     "rules": {
+      "camelcase": "off",
       "func-style": [
         "error",
         "expression"

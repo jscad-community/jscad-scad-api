@@ -44,4 +44,10 @@ export { abs, ceil, concat, cross, exp, floor, ln, len, log, lookup, max, min, n
 export { is_undef, is_bool, is_function, is_list, is_num, is_string } from './tests.js'
 
 // language features
+export { children, $children } from './children.js'
 export { assert, echo, version, version_num } from './features.js'
+export { range } from './range.js'
+
+// runtime features
+export { action } from './action.js'
+export { forAction } from './forAction.js'

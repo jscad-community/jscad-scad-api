@@ -11,6 +11,9 @@ However, OpenSCAD designs still need to be converted to JSCAD (and JavaScript).
 
 ## Usage
 
+This package can be used by any JSCAD design by importing the required functions.
+
+
 ## Implementation Notes
 
 OpenSCAD is based on some bazzare non-procedural language, while JSCAD is 100% JavaScript.
@@ -55,18 +58,22 @@ NOTE: JSCAD also supports cylinderElliptic, ellipsoid, geodesicSphere, roundedCu
 | scale          | v                 |             |
 | resize         | newsize, auto     |             |
 | offset         | r, delta, chamfer |             |
-| minkowski      |                   | UNSUPPORTED |
+| minkowski      |                   |             |
 | hull           |                   |             |
 
 NOTE: JSCAD also supports align and center.
 
-NOTE: JSCAD also supports measurements of area, bounding box, bounding sphers, center, center of mass, demisions, and volume.
+### Measurements
+
+No such thing in OpenSCAD.
+
+NOTE: JSCAD supports measurements of area, bounding box, bounding sphere, center, center of mass, dimensions, and volume.
 
 ### Dimension Changes 2D/3D
 
 | Function       | Parameters                              | Notes       |
 | -------------- | --------------------------------------- | ----------- |
-| projection     |                                         | UNSUPPORTED |
+| projection     | cut                                     |             |
 | linear_extrude | height, v, center, twist, slices, scale |             |
 | rotate_extrude | angle                                   |             |
 

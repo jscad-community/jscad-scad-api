@@ -18,13 +18,12 @@ export const rotate_extrude = (options, object) => {
   // check the options
   checkOptions(options, []) // allow named options with defaults
 
+  if (Array.isArray(object)) object = object[0]
+
   const defaults = {
-    angle: 360,
-    fa: 12,
-    fs: 2,
-    fn: 0
+    angle: 360
   }
-  const { angle, fa, fs, fn } = Object.assign({}, defaults, options)
+  const { angle } = Object.assign({}, defaults, options)
 
   // convert angle to sweep angle and sweep stop angle
   // NOTE: OPENSCAD start angle is zero, sweeping +/- degrees

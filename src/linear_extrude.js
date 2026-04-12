@@ -37,6 +37,8 @@ export const linear_extrude = (options, element) => {
   }
   let { height, center, twist, scale, slices } = Object.assign({}, defaults, options)
 
+  if (Array.isArray(element)) element = element[0]
+
   // convert scalar scale to array
   if (Number.isFinite(scale)) {
     scale = [scale, scale]

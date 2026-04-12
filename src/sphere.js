@@ -16,8 +16,8 @@ import { get_fragments_from_options } from './globals.js'
  * @example
  * let sphere1 = sphere({r: 10})
  * let sphere2 = sphere({d: 20})
- * let sphere3 = sphere({r: 15, fa: 12, fs: 2})
- * let sphere4 = sphere({r: 15, fn=32})
+ * let sphere3 = sphere({r: 15, $fa: 12, $fs: 2})
+ * let sphere4 = sphere({r: 15, $fn: 32})
  */
 export const sphere = (options) => {
   // check the options

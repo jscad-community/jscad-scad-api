@@ -29,6 +29,7 @@ export { rotate_extrude } from './rotate_extrude.js'
 export { difference } from './difference.js'
 export { intersection } from './intersection.js'
 export { union } from './union.js'
+export { minkowski } from './minkowski.js'
 
 // string functions
 export { str, chr, ord } from './strings.js'

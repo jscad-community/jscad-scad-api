@@ -1,7 +1,7 @@
 import { flatten } from '@jscad/modeling'
 
 /**
- * Evaluate each value in a set of vectors, or each name in the attributes, 
+ * Evaluate each value in a set of vectors, or each name in the attributes,
  * applying it to the given function.
  *
  * This is bascially a replacement for the SCAD for-loop.

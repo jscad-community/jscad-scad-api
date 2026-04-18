@@ -7,12 +7,14 @@ const { name, version, license } = JSON.parse(fs.readFileSync('package.json'))
 
 export default {
   input: 'src/index.js',
+  external: ['@jscad/modeling'],
   output: [
     {
       file: 'dist/jscad-scad-api.min.js',
       format: 'umd',
       name: 'jscad-scad-api',
-      banner: `/*! ${name} V${version} (${license}) */`
+      banner: `/*! ${name} V${version} (${license}) */`,
+      globals: { "@jscad/modeling": "jscadModeling"}
     },
     {
       file: 'dist/jscad-scad-api.es.js',

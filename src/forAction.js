@@ -9,6 +9,7 @@ import { flatten } from '@jscad/modeling'
  * @param {Object} where each attribute has a list of values
  * @param {Function} function (call-back) of which to execution for each value
  * @returns Array of new geometry, i.e. what every is produced from the given function.
+ * @alias module:jscad-scad-api.forAction
  */
 export const forAction = (attributes, func) => {
   const accum = []

@@ -5,6 +5,7 @@ import { flatten } from '@jscad/modeling'
  *
  * NOTE: Arguments are concatenated as given, no spaces added.
  *
+ * @alias module:jscad-scad-api.str
  */
 export const str = (...contents) => contents.join('')
 

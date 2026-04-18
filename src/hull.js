@@ -7,6 +7,7 @@ import { hulls } from '@jscad/modeling'
  *
  * @param {...Object} elements - the elements to hull
  * @return {Object} the convex hall of the elements
+ * @alias module:jscad-scad-api.hull
  *
  * @example
  * let hulled = hull(square(), circle())

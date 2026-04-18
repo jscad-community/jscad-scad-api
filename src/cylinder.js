@@ -20,6 +20,7 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Float} [options.d2=0] - if provided, diameter of the bottom of the cylinder, d2 = r2 * 2
  * @param {Boolean} [options.center=false] - wether to center the cylinder about Z axis or not
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.cylinder
  *
  * @example
  * let cylinder1 = cylinder({r: 10})

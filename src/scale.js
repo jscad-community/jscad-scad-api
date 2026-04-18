@@ -9,6 +9,7 @@ import { checkOptions, isNumberArray } from './commonChecks.js'
  * @param {Array} options.v - a vector that defines the factors of scale
  * @param {...Object} elements - the elements to scale
  * @return {Object|Array} the scaled element, or a list of scaled elements
+ * @alias module:jscad-scad-api.scale
  *
  * @example
  * let scaled1 = scale({v: [10, 2]}, square()) // scale 2D element

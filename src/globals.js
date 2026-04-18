@@ -1,4 +1,4 @@
-/**
+/*
  * The $fn, $fs and $fa special variables control the number of facets used to generate an arc.
  */
 export let $fn = 0 // number of fragments per rotation

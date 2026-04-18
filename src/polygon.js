@@ -14,6 +14,7 @@ import { checkOptions } from './commonChecks.js'
  * @param {Array} [options.paths=[]] - paths of the polygon : either flat or nested array
  * @param {Array} [options.points=[]] - points of the polygon : either flat or nested array
  * @returns {Geom2} new 2D geometry
+ * @alias module:jscad-scad-api.polygon
  *
  * @example
  * let poly1 = polygon({points: [[10,11], [0,11], [5,20]]})

@@ -7,6 +7,7 @@ import { minkowskiSum } from '@jscad/modeling'
  *
  * @param {...Object} elements - the elements to sum
  * @return {Object} the minkowski sum of the elements
+ * @alias module:jscad-scad-api.minkowski
  *
  * @example
  * let newshape = minkowski(cube(), sphere())

@@ -1,9 +1,11 @@
 
-/** Construct a with, segments tupple from a character
+/**
+ * Construct a with, segments tupple from a character
  * @param {Float} x - x offset
  * @param {Float} y - y offset
  * @param {Float} char - character
  * @returns {Object} { width: X, segments: [...] }
+ * @alias module:jscad-scad-api.vector_char
  *
  * @example
  * let charData = vector_char(0, 12.2, 'b')
@@ -32,11 +34,13 @@ export const vector_char = (x, y, char) => {
   return { width: w, segments: segs }
 }
 
-/** Construct an array of with, segments tupple from a string
+/**
+ * Construct an array of with, segments tupple from a string
  * @param {Float} x - x offset
  * @param {Float} y - y offset
  * @param {Float} string - string
  * @returns {Array} [{ width: X, segments: [...] }]
+ * @alias module:jscad-scad-api.vector_text
  *
  * @example
  * let stringData = vector_text(0, 12.2, 'b')

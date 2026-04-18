@@ -18,8 +18,10 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Boolean} [options.chamfer=false] - defines if edges should be chamfered (delta mode only)
  * @param {...Object} elements - the elements to offset
  * @return {Object|Array} the offset element, or a list of offset elements
+ * @alias module:jscad-scad-api.offset
  *
  * @example
+ * const o = offset({r: 10}, square(20))
  */
 export const offset = (options, ...elements) => {
   // check the options

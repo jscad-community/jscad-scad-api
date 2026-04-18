@@ -11,8 +11,10 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Object} [options] - options for construction
  * @param {Float} [options.angle=360] - number of degrees to sweep, starting at the positive X axis. The direction of the sweep is counterclockwise, hence a negative angle sweeps clockwise.
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.rotate_extrude
  *
  * @example
+ * const e = rotate_extrude({convexity: 10}, translate([2, 0, 0], circle({r: 1})))
  */
 export const rotate_extrude = (options, object) => {
   // check the options

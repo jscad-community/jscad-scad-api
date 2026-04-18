@@ -12,6 +12,7 @@ import { checkOptions } from './commonChecks.js'
  * @param {Array} [options.points] - array of points (X, Y, Z) of which to construct the polyhedron
  * @param {Array} [options.faces] - array of faces, where each face contains three or more indices
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.polyhedron
  *
  * @example
  * const polyhedron1 = polyhedron({

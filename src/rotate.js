@@ -13,6 +13,7 @@ import { checkOptions, isNumberArray } from './commonChecks.js'
  * @param {Array} [options.v=[0,0,1]] - a vector [X, Y, Z] that defines an arbitrary axis for rotation
  * @param {...Object} objects - the objects to rotate
  * @return {Object|Array} the rotated object, or a list of rotated objects
+ * @alias module:jscad-scad-api.rotate
  *
  * @example
  * let rotated1 = rotate({a: 45}, square()) // rotate 2D objects about the Z axis

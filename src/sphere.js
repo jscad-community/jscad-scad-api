@@ -12,12 +12,13 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Float} [options.r=1] - radius of the sphere
  * @param {Float} [options.d=0] - if provided, diameter of the sphere where d = r * 2
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.sphere
  *
  * @example
  * let sphere1 = sphere({r: 10})
  * let sphere2 = sphere({d: 20})
- * let sphere3 = sphere({r: 15, fa: 12, fs: 2})
- * let sphere4 = sphere({r: 15, fn=32})
+ * let sphere3 = sphere({r: 15, $fa: 12, $fs: 2})
+ * let sphere4 = sphere({r: 15, $fn: 32})
  */
 export const sphere = (options) => {
   // check the options

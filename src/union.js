@@ -7,6 +7,7 @@ import { booleans } from '@jscad/modeling'
  *
  * @param {...Object} elements - the elements to union
  * @return {Object} the union of the elements
+ * @alias module:jscad-scad-api.union
  *
  * @example
  * let newshape = union(sphere(), cube())

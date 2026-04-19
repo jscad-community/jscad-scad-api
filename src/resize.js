@@ -12,6 +12,7 @@ import { checkOptions, isNumberArray } from './commonChecks.js'
  * @param {Array} [options.auto] - an array of true / false values, specifying if autosizing should occur
  * @param {Object} element - the element to resize
  * @return {Object} the resized element
+ * @alias module:jscad-scad-api.resize
  *
  * @example
  * let resized1 = resize({newsize=[5,5], square()) // resize 2D element

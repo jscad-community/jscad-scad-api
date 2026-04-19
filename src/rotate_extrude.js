@@ -11,20 +11,21 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Object} [options] - options for construction
  * @param {Float} [options.angle=360] - number of degrees to sweep, starting at the positive X axis. The direction of the sweep is counterclockwise, hence a negative angle sweeps clockwise.
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.rotate_extrude
  *
  * @example
+ * const e = rotate_extrude({convexity: 10}, translate([2, 0, 0], circle({r: 1})))
  */
 export const rotate_extrude = (options, object) => {
   // check the options
   checkOptions(options, []) // allow named options with defaults
 
+  if (Array.isArray(object)) object = object[0]
+
   const defaults = {
-    angle: 360,
-    fa: 12,
-    fs: 2,
-    fn: 0
+    angle: 360
   }
-  const { angle, fa, fs, fn } = Object.assign({}, defaults, options)
+  const { angle } = Object.assign({}, defaults, options)
 
   // convert angle to sweep angle and sweep stop angle
   // NOTE: OPENSCAD start angle is zero, sweeping +/- degrees

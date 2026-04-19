@@ -20,8 +20,16 @@ const convertMatrix = (s) => mat4.fromValues(
  * @param {Array} options.m - affine transformation matrix, where the matrix is 4×3 or 4x4 array
  * @param {...Object} objects - the objects to transform
  * @return {Object|Array} the transformed object, or a list of transformed objects
+ * @alias module:jscad-scad-api.multimatrix
  *
  * @example
+ * const c = cube()
+ * const m = multimatrix([
+ *     [cos(angle), -sin(angle), 0, 10],
+ *     [sin(angle),  cos(angle), 0, 20],
+ *     [         0,           0, 1, 30],
+ *     [         0,           0, 0,  1]
+ *   ], c)
  */
 export const multmatrix = (options, ...objects) => {
   // check the options

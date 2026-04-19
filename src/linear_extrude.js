@@ -19,7 +19,8 @@ const getScale = (scale, steps) => {
  * @param {Integer} [options.twist=0] - angle in which to twist the extusion about the Z-axis
  * @param {Integer} [options.scale=0.0] - scale to acheive for the final the shape
  * @param {Boolean} [options.center=false] - whether to center the final 3D shape
- * @returns {CSG} new extruded shape
+ * @returns {Geom3} new extruded shape
+ * @alias module:jscad-scad-api.linear_extrude
  *
  * @example
  * let shape1 = linear_extrude({height: 10}, square())
@@ -36,6 +37,8 @@ export const linear_extrude = (options, element) => {
     slices: 8
   }
   let { height, center, twist, scale, slices } = Object.assign({}, defaults, options)
+
+  if (Array.isArray(element)) element = element[0]
 
   // convert scalar scale to array
   if (Number.isFinite(scale)) {

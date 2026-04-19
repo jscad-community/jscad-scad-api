@@ -7,6 +7,7 @@ import { subtract } from '@jscad/modeling'
  *
  * @param {...Object} elements - the elements to subtract from the first
  * @return {Object} the difference of the elements
+ * @alias module:jscad-scad-api.difference
  *
  * @example
  * let newshape = difference(sphere(), cube())

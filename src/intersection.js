@@ -8,6 +8,7 @@ import { intersect } from '@jscad/modeling'
  *
  * @param {...Object} elements - the elements to intersect
  * @return {Object} the intersection of the elements
+ * @alias module:jscad-scad-api.intersection
  *
  * @example
  * let newshape = intersection(sphere(), cube())

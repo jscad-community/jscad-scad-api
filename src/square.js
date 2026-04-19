@@ -11,6 +11,7 @@ import { checkOptions, isNumberArray } from './commonChecks.js'
  * @param {Float} [options.size=[1,1]] - size of the square, either as array or scalar
  * @param {Boolean} [options.center=false] - wether to center the square/rectangle or not
  * @returns {Geom2} new 2D geometry
+ * @alias module:jscad-scad-api.square
  *
  * @example
  * let square1 = square({size: [x, y], center: true})

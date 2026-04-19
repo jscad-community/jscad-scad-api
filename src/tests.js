@@ -13,7 +13,9 @@ export const is_string = (value) => (typeof value === 'string')
  *
  * @param {Any} value - value to test
  * @return {Boolean} true if the given value is null or undefined
+ * @alias module:jscad-scad-api.is_undef
  *
  * @example
+ * if (is_undef(exploded)) ...
  */
 export const is_undef = (value) => (value === null || value === undefined)

@@ -9,6 +9,7 @@ import { checkOptions, isNumberArray } from './commonChecks.js'
  * @param {Float|Array} options.v - the perpendicular, normal vector of the plane passing through the origin
  * @param {...Object} objects - the objects to mirror
  * @return {Object|Array} the mirrored object, or a list of mirrored objects
+ * @alias module:jscad-scad-api.mirror
  *
  * @example
  * let mirrored1 = mirror({v: [1, 0, 0]}, cube()) // mirror about the X axis

@@ -11,6 +11,7 @@ import { checkOptions, isGT, isNumberArray } from './commonChecks.js'
  * @param {Float} [options.size=[1,1,1]] - size of each side (X, Y, Z), or a single size
  * @param {Boolean} [options.center=false] - wether to center the cube/cuboid or not
  * @returns {Geom3} new 3D geometry
+ * @alias module:jscad-scad-api.cube
  *
  * @example
  * let cube1 = cube({size: 10})

@@ -12,6 +12,7 @@ import { get_fragments_from_options } from './globals.js'
  * @param {Float} [options.r=1] - radius of the circle
  * @param {Float} [options.d=0] - if provided, diameter of the circle where d = r * 2
  * @returns {Geom2} new 2D geometry
+ * @alias module:jscad-scad-api.circle
  *
  * @example
  * let circle1 = circle({r: 10})

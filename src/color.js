@@ -13,6 +13,7 @@ import { checkOptions } from './commonChecks.js'
  * @param {Object} color - either an array or a hex string of color values
  * @param {...Object} elements - the elements to color
  * @return {Object|Array} the colored element, or a list of colored elements
+ * @alias module:jscad-scad-api.color
  *
  * @example
  * let color1 = color([1,0,0,1], sphere())

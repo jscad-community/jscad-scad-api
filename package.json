@@ -4,7 +4,7 @@
   "description": "JSCAD bridge for OpenSCAD designs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jscad-community/jscad-scad-api"
+    "url": "git+https://github.com/jscad-community/jscad-scad-api.git"
   },
   "type": "module",
   "main": "src/index.js",

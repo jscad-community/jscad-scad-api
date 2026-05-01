@@ -1,6 +1,6 @@
 {
   "name": "jscad-scad-api",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "JSCAD bridge for OpenSCAD designs",
   "repository": {
     "type": "git",
@@ -8,8 +8,8 @@
   },
   "type": "module",
   "main": "src/index.js",
-  "unpkg": "dist/jscad-scad-api.min.js",
-  "module": "dist/jscad-scad-api.es.js",
+  "unpkg": "dist/jscad-scad-api.js",
+  "jsdelivr": "dist/jscad-scad-api.js",
   "scripts": {
     "build": "rollup --config",
     "coverage": "c8 --all --reporter=html --reporter=text npm run tests",

@@ -10,14 +10,14 @@ export default {
   external: ['@jscad/modeling'],
   output: [
     {
-      file: 'dist/jscad-scad-api.min.js',
+      file: 'dist/jscad-scad-api.umd.js',
       format: 'umd',
       name: 'jscad-scad-api',
       banner: `/*! ${name} V${version} (${license}) */`,
       globals: { "@jscad/modeling": "jscadModeling"}
     },
     {
-      file: 'dist/jscad-scad-api.es.js',
+      file: 'dist/jscad-scad-api.js',
       format: 'es',
       banner: `/*! ${name} V${version} (${license}) */`
     }

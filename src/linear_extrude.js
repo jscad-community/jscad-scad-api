@@ -73,10 +73,8 @@ export const linear_extrude = (options, element) => {
   // console.log("twistScale",twistScale)
 
   // create a slice (3D) from the element (2D) for extruding
-  const baseSides = geom2.toSides(element)
-  if (baseSides.length === 0) throw new Error('the given element cannot be empty')
-
-  const baseSlice = slice.fromGeom2(element)
+  const baseSlice = slice.fromOutlines(geom2.toOutlines(element))
+  if (baseSlice.contours.length === 0) throw new Error('the given 2D element cannot be empty')
 
   // set up the callback function to create each step
   const matrix = mat4.create()

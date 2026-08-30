@@ -34,3 +34,12 @@ export const version = () => [2024, 4, 1]
  * @alias module:jscad-scad-api.version_num
  */
 export const version_num = () => 20240401
+
+/**
+ * Render the geometries to the screen, which is useful for debugging geometry.
+ *
+ * NOTE: The geometries are printed to the console. There is no rendering.
+ *
+ * @alias module:jscad-scad-api.render
+ */
+export const render = (...contents) => console.log(...contents)

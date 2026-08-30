@@ -173,6 +173,7 @@ If you don't see a function above then it's not supported, or the JavaScript lan
     * [.echo](#module_jscad-scad-api.echo)
     * [.version](#module_jscad-scad-api.version)
     * [.version_num](#module_jscad-scad-api.version_num)
+    * [.render](#module_jscad-scad-api.render)
     * [.forAction](#module_jscad-scad-api.forAction) ⇒
     * [.hull](#module_jscad-scad-api.hull) ⇒ <code>Object</code>
     * [.intersection](#module_jscad-scad-api.intersection) ⇒ <code>Object</code>
@@ -333,6 +334,13 @@ Return the version as a number, e.g. 20240401.
 
 **Kind**: static constant of [<code>jscad-scad-api</code>](#module_jscad-scad-api)  
 
+### jscad-scad-api.render
+Render the geometries to the screen, which is useful for debugging geometry.
+
+NOTE: The geometries are printed to the console. There is no rendering.
+
+**Kind**: static constant of [<code>jscad-scad-api</code>](#module_jscad-scad-api)  
+
 ### jscad-scad-api.forAction ⇒
 Evaluate each value in a set of vectors, or each name in the attributes,
 applying it to the given function.
@@ -340,12 +348,12 @@ applying it to the given function.
 This is bascially a replacement for the SCAD for-loop.
 
 **Kind**: static constant of [<code>jscad-scad-api</code>](#module_jscad-scad-api)  
-**Returns**: Array of new geometry, i.e. what every is produced from the given function.  
+**Returns**: union of geometries produced from the given function  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | where | <code>Object</code> | each attribute has a list of values |
-| function | <code>function</code> | (call-back) of which to execution for each value |
+| function | <code>function</code> | (call-back) of which to execute for each set of values |
 
 
 ### jscad-scad-api.hull ⇒ <code>Object</code>

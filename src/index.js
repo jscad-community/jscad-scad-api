@@ -212,9 +212,9 @@ export { is_undef, is_bool, is_function, is_list, is_num, is_string } from './te
 
 // language features
 export { children, $children } from './children.js'
-export { assert, echo, version, version_num } from './features.js'
+export { assert, echo, render, version, version_num } from './features.js'
 export { range } from './range.js'
 
 // runtime features
 export { action } from './action.js'
-export { forAction } from './forAction.js'
+export { forAction, forUnion } from './forAction.js'
